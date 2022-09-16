@@ -45,16 +45,16 @@ header{
 /*---Presentacion en el header---*/
 .presentacion{
 	background-color: rgba(60,60,160,0.8);
-    display: grid;
-    grid-template-columns: auto;
-    justify-content: center;
-    grid-column-gap: 2em;
-    padding: 5em;
+	display: grid;
+	grid-template-columns: auto;
+	justify-content: center;
+	grid-column-gap: 2em;
+	padding: 5em;
 }
 .p-logo{	
 	object-fit: cover;
-    align-items: center;
-    display: block;
+	align-items: center;
+	display: block;
 	background: rgba(50,50,150,1);
 	height: 60px;
 	width: 60px;
@@ -63,8 +63,8 @@ header{
 .p-title{
 	color: white;
 	font-size: 2em;
-    text-align: center;
-    border-bottom: 1px solid rgba(0,0,0,1);
+	text-align: center;
+	border-bottom: 1px solid rgba(0,0,0,1);
 }
 .p-content{
 	text-align: center;
@@ -83,18 +83,18 @@ header{
 
 .c-title, .c-title2{
 	display: block;
-    font-size: 1.5em;
+	font-size: 1.5em;
 	text-align: center;
-    grid-column-start: 1;
-    grid-column-end: 4;
+	grid-column-start: 1;
+	grid-column-end: 4;
 }
 .c-content2, .c-content{
 	border-bottom: 2px dashed rgba(20,20,40,0.8);
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    grid-template-rows: repeat(3, auto);
-    grid-column-gap: 0.5em;
-    justify-content: center;
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+	grid-template-rows: repeat(3, auto);
+	grid-column-gap: 0.5em;
+	justify-content: center;
 }
 .parrafo{
 	background-color: rgba(20,20,60,0.4);
@@ -103,36 +103,36 @@ header{
 }
 .c-box{
 	display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 1em auto;
-    padding: 3em;
-    min-width: 3em;
-    max-width: 3em;
-    min-height: 3em;
-    max-height: 3em;
-    background-color: rgba(40,40,60,1);
-    border-radius: 10px;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	text-align: center;
+	margin: 1em auto;
+	padding: 3em;
+	min-width: 3em;
+	max-width: 3em;
+	min-height: 3em;
+	max-height: 3em;
+	background-color: rgba(40,40,60,1);
+	border-radius: 10px;
 }
 .c-box i{
-    font-family: 'Line Awesome Brands', 'Font Awesome Brands';
+	font-family: 'Line Awesome Brands', 'Font Awesome Brands';
 	color: rgba(100,100,150,1);
 	-webkit-font-smoothing: antialiased;
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    font-size: 4em;
-    text-rendering: auto;
-    line-height: 1;
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	font-size: 4em;
+	text-rendering: auto;
+	line-height: 1;
 }
 .c-box span{
 	display: block;
-    font-size: 1em;
-    margin: 1em 1em;
-    font-weight: bold;
+	font-size: 1em;
+	margin: 1em 1em;
+	font-weight: bold;
 }
 .c-bar{
 	height: 0.7em;
@@ -146,10 +146,10 @@ header{
 /*Proyectos y contactos*/
 .pro-title, .ct-title{
 	display: block;
-    font-size: 1.5em;
+	font-size: 1.5em;
 	text-align: center;
-    grid-column-start: 1;
-    grid-column-end: 3;
+	grid-column-start: 1;
+	grid-column-end: 3;
 }
 .c-proyecto{
 	border-bottom: 2px dashed rgba(20,20,40,0.8);
@@ -158,23 +158,23 @@ header{
 	display: flex;
 }
 .proyecto-1, .proyecto-2{
-    text-align: center;
+	text-align: center;
 	margin: 1em auto;
-    min-width: 18em;
-    max-width: 18em;
-    min-height: 24em;
-    background-color: rgba(30,30,40,0.8);
-    border-radius: 10px;
+	min-width: 18em;
+	max-width: 18em;
+	min-height: 24em;
+	background-color: rgba(30,30,40,0.8);
+	border-radius: 10px;
 }
 .pr-ct{
 	margin: 0 1em;
-    text-align: center;
-    display: block;
+	text-align: center;
+	display: block;
 }
 .pr-ct span{
 	display: block;
-    font-size: 1.17em;
-    font-weight: bold;
+	font-size: 1.17em;
+	font-weight: bold;
 }
 .pr-ct p{
 	margin-top: 0.5em;
@@ -182,27 +182,31 @@ header{
 }
 .pr-ct a{
 	background-color: rgba(100,100,180,1);
-    color: rgba(60,210,250,1);
-    text-decoration: none;
-    padding: 0.7em;
-    border-radius: 5px;
-    margin: 0 0.1em;
+	color: rgba(60,210,250,1);
+	text-decoration: none;
+	padding: 0.7em;
+	border-radius: 5px;
+	margin: 0 0.1em;
 }
 .contactos{
-	display: grid;
-    grid-template-columns: repeat(2, auto);
-    grid-row-gap: 1em;
-    margin: 1em auto;
-    justify-content: center;
+	background: black;
+	width: 100vw;
 }
+/*.contactos{
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+	grid-row-gap: 1em;
+	margin: 1em auto;
+	justify-content: center;
+}*/
 .contact-1,.contact-2,.contact-3,.contact-4{
 	background-color: rgba(50,50,100,0.8);
 	text-decoration: none;
-    margin: 0 10px;
-    padding: 0.5em 1em;
-    border-radius: 10px;
-    min-width: 90px;
-    max-width: 90px;
+	margin: 0 10px;
+	padding: 0.5em 1em;
+	border-radius: 10px;
+	min-width: 90px;
+	max-width: 90px;
 }
 .contactos div{
 	padding: 8px 0;
