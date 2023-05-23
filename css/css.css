@@ -20,7 +20,7 @@ header{
 }
 .nav{
 	display: flex;
-	padding: 0.5em;
+	padding: 1.5em 0.5em;
 	background: rgba(50,50,60,1);
 }
 .nav-navegador{
