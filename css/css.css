@@ -46,6 +46,7 @@ header{
 /*---Presentacion en el header---*/
 .presentacion{
 	background: url(../img/fondoazul.gif)no-repeat;
+	background-size: cover;
 	display: grid;
 	grid-template-columns: auto;
 	justify-content: center;
