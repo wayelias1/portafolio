@@ -45,7 +45,7 @@ header{
 }
 /*---Presentacion en el header---*/
 .presentacion{
-	background-color: rgba(60,60,160,0.8);
+	background: url(../img/fondoazul.gif)no-repeat;
 	display: grid;
 	grid-template-columns: auto;
 	justify-content: center;
