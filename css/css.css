@@ -1,4 +1,4 @@
-/*----Body y generales----*/
+g/*----Body y generales----*/
 *{
 	margin: 0;
 }
@@ -54,8 +54,8 @@ header{
 .p-logo{	
 	object-fit: cover;
 	align-items: center;
-	display: block;
-	background: rgba(50,50,150,1);
+	display: flex;
+	background: url("../img/E.png");
 	height: 60px;
 	width: 60px;
 	margin: 0 auto;
@@ -188,9 +188,11 @@ header{
 	border-radius: 5px;
 	margin: 0 0.1em;
 }
+/*---Footer----*/
 .contactos{
 	background: black;
 	width: 100vw;
+	text-align: center;
 }
 /*.contactos{
 	display: grid;
@@ -200,7 +202,6 @@ header{
 	justify-content: center;
 }*/
 .contact-1,.contact-2,.contact-3,.contact-4{
-	background-color: rgba(50,50,100,0.8);
 	text-decoration: none;
 	margin: 0 10px;
 	padding: 0.5em 1em;
@@ -208,15 +209,14 @@ header{
 	min-width: 90px;
 	max-width: 90px;
 }
-.contactos div{
+.contactos a{
 	padding: 8px 0;
-	text-align: center;
 	color: white;
 	font-size: 17px;
 	font-weight: bold;
 }
-.contactos div i{
-	font-size: 50px;
+.contactos a i{
+	font-size: 20px;
 	color: rgba(120,120,190,1); 
 }
 @media(max-width: 370px){
