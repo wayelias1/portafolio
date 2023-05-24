@@ -7,8 +7,26 @@ body{
 	font-family: 'Roboto', sans-serif;
 }
 header{
-	border-bottom: 2px dashed rgba(20,20,40,0.8);
+	border-bottom: 2px dashed rgba(20, 20, 40, 1);
 }
+
+.button{
+    background: none;
+    border: 3px solid;
+    color: inherit;
+    font-weight: bolder;
+    font-family: 'arial';
+    padding: 1rem 1.3rem;
+    border-radius: 100%;
+    font-size: 15px;
+    cursor: pointer;
+}
+.button:hover{
+    background: linear-gradient(rgb(77 ,160, 229),rgb(31, 96, 226),rgb(77 ,160, 229));
+    border: 3px solid #222222;
+    color: rgb(255, 255, 255);
+}
+
 /*---Header y nav----*/
 .nav-title{
 	text-shadow: 0px 0px 10px rgba(130,130,180,1); /* x y desenfoque color*/
@@ -22,7 +40,7 @@ header{
 .nav{
 	display: flex;
 	padding: 1.5em 0.5em;
-	background: rgba(50,50,60,1);
+	background: rgb(15, 15, 15);
 }
 .nav-navegador{
 	margin-left: 1em;
@@ -71,7 +89,8 @@ header{
 .p-content{
 	text-align: center;
 	font-size: 1em;
-	color: rgba(150,150,100,1);
+	color: rgb(247, 247, 155);
+	background:  linear-gradient(rgba(0,0,0,0), rgba(190, 170, 170, 0.5), rgba(0,0,0,0));
 }
 
 
@@ -139,6 +158,60 @@ header{
 	width: 100%;
 	height: 0.7em;
 }
+/*Slider de proyectos*/
+.slider{
+    overflow: hidden;
+    height: 70vh;
+    border-radius: 55px;
+    position: relative;
+}
+.slider-group{
+    z-index: -1;
+    display: flex;
+    flex: none;
+    height: inherit;
+    width: 200%;
+    list-style: none;
+    margin-left: -50%;
+    padding: 0;
+}
+.slider-box{
+    width: 100%;
+	text-align: center;
+	margin: 1em auto;
+	min-width: 18em;
+	max-width: 18em;
+	min-height: 24em;
+	background-color: rgba(30,30,40,0.8);
+	border-radius: 10px;
+}
+.slider-box img{
+    object-fit: cover;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.slider-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.53) 16.67%, rgba(0, 0, 0, 0.46) 79.69%, rgba(0, 0, 0, 0) 100%);
+    color: rgb(255, 255, 255);
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+#btn-left{
+	left: 0;
+}
+
+#btn-right{
+	right: 0;
+	
+}
 
 /*Proyectos y contactos*/
 .pro-title, .ct-title{
@@ -151,18 +224,7 @@ header{
 .c-proyecto{
 	border-bottom: 2px dashed rgba(20,20,40,0.8);
 }
-.proyectos{
-	display: flex;
-}
-.proyecto-1, .proyecto-2{
-	text-align: center;
-	margin: 1em auto;
-	min-width: 18em;
-	max-width: 18em;
-	min-height: 24em;
-	background-color: rgba(30,30,40,0.8);
-	border-radius: 10px;
-}
+
 .pr-ct{
 	margin: 0 1em;
 	text-align: center;
