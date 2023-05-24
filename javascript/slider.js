@@ -9,12 +9,12 @@ slider.insertAdjacentElement('afterbegin', sliderCajaLast);
 
 function moverDer(){
     let sliderCajaFirst = document.querySelectorAll(".slider-box")[0];
-    slider.style.marginLeft = "-200%";
+    slider.style.marginLeft = "-100%";
     slider.style.transition = "all 0.5s";
     setTimeout(function(){
         slider.style.transition = "none";
         slider.insertAdjacentElement('beforeend', sliderCajaFirst);
-        slider.style.marginLeft = "-100%";
+        slider.style.marginLeft = "-50%";
     }, 500);
 }
 
@@ -30,7 +30,7 @@ function moverIzq(){
     setTimeout(function(){
         slider.style.transition = "none";
         slider.insertAdjacentElement('afterbegin', sliderCajaLast);
-        slider.style.marginLeft = "-100%";
+        slider.style.marginLeft = "-50%";
     }, 500);
 }
 btnleft.addEventListener('click', function(){
