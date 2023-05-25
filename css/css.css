@@ -3,28 +3,11 @@
 	margin: 0;
 }
 body{
-	background: rgba(0,0,0,0.7);
+	background: rgba(0,0,0,0.8);
 	font-family: 'Roboto', sans-serif;
 }
 header{
 	border-bottom: 2px dashed rgba(20, 20, 40, 1);
-}
-
-.button{
-    background: none;
-    border: 3px solid;
-    color: inherit;
-    font-weight: bolder;
-    font-family: 'arial';
-    padding: 1rem 1.3rem;
-    border-radius: 100%;
-    font-size: 15px;
-    cursor: pointer;
-}
-.button:hover{
-    background: linear-gradient(rgb(77 ,160, 229),rgb(31, 96, 226),rgb(77 ,160, 229));
-    border: 3px solid #222222;
-    color: rgb(255, 255, 255);
 }
 
 /*---Header y nav----*/
@@ -41,6 +24,10 @@ header{
 	display: flex;
 	padding: 1.5em 0.5em;
 	background: rgb(15, 15, 15);
+}
+.nav-contenido{
+	display: flex;
+	align-items: center;
 }
 .nav-navegador{
 	margin-left: 1em;
@@ -106,13 +93,16 @@ header{
 	display: block;
 	font-size: 1.5em;
 	text-align: center;
+	width: 100vw;
 }
 .c-content2, .c-content{
 	border-bottom: 2px dashed rgba(20,20,40,0.8);
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 }
 .parrafo{
+	border-radius: 15px;
 	background-color: rgba(20,20,60,0.4);
 	padding: 3em;
 	margin: 1em 1em;
@@ -162,6 +152,7 @@ header{
 .slider{
     overflow: hidden;
     height: 70vh;
+	width: auto;
     border-radius: 55px;
     position: relative;
 }
@@ -202,6 +193,26 @@ header{
     width: 100%;
     height: 100%;
     top: 0;
+}
+
+.button{
+    background: none;
+    border: 3px solid;
+    color: inherit;
+    font-weight: bolder;
+    font-family: 'arial';
+    padding: 1rem 1.3rem;
+    border-radius: 100%;
+    font-size: 15px;
+    cursor: pointer;
+	outline: none;
+	top: 50%;
+	position: absolute;
+}
+.button:hover{
+    background: linear-gradient(rgb(77 ,160, 229),rgb(31, 96, 226),rgb(77 ,160, 229));
+    border: 3px solid #222222;
+    color: rgb(255, 255, 255);
 }
 
 #btn-left{
