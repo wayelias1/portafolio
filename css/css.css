@@ -7,7 +7,7 @@ body{
 	font-family: 'Roboto', sans-serif;
 }
 header{
-	border-bottom: 2px dashed rgba(20, 20, 40, 1);
+	border-bottom: 2px solid rgba(20, 20, 40, 1);
 }
 i{
 	color: rgba(150,150,220,1);
@@ -21,7 +21,7 @@ i{
 }
 .nav-title{
 	text-shadow: 0px 0px 10px rgba(130,130,180,1); /* x y desenfoque color*/
-	box-shadow: inset 0 0 10px rgba(60,60,110,0.8);
+	/*box-shadow: inset 0 0 10px rgba(60,60,110,0.8);*/
 	border-radius: 15%;
 	color: white;
 	margin-left: 0.5em;
@@ -29,6 +29,7 @@ i{
 	font-size: xx-large;
 	position: absolute;
     top: calc(50% / 2);
+	background: radial-gradient(rgba(60, 110, 210, 0.5) , rgba(0, 0, 0,0));
 }
 .nav-contenido{
 	display: flex;
@@ -101,7 +102,7 @@ i{
 	width: 100vw;
 }
 .c-content2, .c-content{
-	border-bottom: 2px dashed rgba(20,20,40,0.8);
+	/*border-bottom: 2px dashed rgba(20,20,40,0.8);*/
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
@@ -171,14 +172,14 @@ i{
     padding: 0;
 }
 .slider-box{
-    width: 100%;
 	text-align: center;
 	margin: 1em auto;
-	min-width: 18em;
-	max-width: 18em;
+	min-width: 16em;
+	max-width: 20em;
 	min-height: 24em;
+	max-height: 40em;
 	background-color: rgba(30,30,40,0.8);
-	border-radius: 10px;
+	border-radius: 1em;
 }
 .slider-box img{
     object-fit: cover;
@@ -215,7 +216,7 @@ i{
 }
 .button:hover{
     background: linear-gradient(rgb(77 ,160, 229),rgb(31, 96, 226),rgb(77 ,160, 229));
-    border: 3px solid #222222;
+    border: 3px solid rgba(0,0,0,0);
     color: rgb(255, 255, 255);
 }
 
@@ -241,9 +242,9 @@ i{
 }
 
 .pr-ct{
+	height: inherit;
 	margin: 0 1em;
 	text-align: center;
-	display: block;
 }
 .pr-ct span{
 	display: block;
@@ -255,12 +256,26 @@ i{
 	margin-bottom: 2em;
 }
 .pr-ct a{
-	background-color: rgba(100,100,180,1);
-	color: rgba(60,210,250,1);
+	background-color: rgb(66 66 253);
+    color: rgb(137 230 255);
 	text-decoration: none;
 	padding: 0.7em;
 	border-radius: 5px;
 	margin: 0 0.1em;
+	bottom: 0;
+}
+
+.pr-pt{
+	position: relative;
+	opacity: 0;
+	height: 100%;
+	background: rgba(50, 50, 50, 0.6);
+}
+.pr-ct:hover ~ .pr-pt, .pr-pt:hover{
+	opacity: 1;
+	transition-property: opacity;
+	transition-duration: 1.5s;
+
 }
 /*---Footer----*/
 .contactos{
@@ -296,4 +311,9 @@ i{
 	.proyectos{
 		display: block;
 	}
+
 } 
+
+@media (max-width: 830px) {
+	
+}
