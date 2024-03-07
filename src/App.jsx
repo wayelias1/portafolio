@@ -62,7 +62,7 @@ function App() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center right-7">
                   <img
-                    className="h-10 w-auto dark:bg-slate-900 bg-slate-200 rounded-full" src="/img/E.png" alt="Logo"
+                    className="h-10 w-auto dark:bg-slate-900 bg-slate-200 rounded-full" src="img/E.png" alt="Logo"
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
