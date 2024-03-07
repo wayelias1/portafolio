@@ -1,25 +1,48 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon, UserIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, BellIcon, XMarkIcon, UserIcon, SunIcon, MoonIcon} from '@heroicons/react/24/outline'
+import { gsap } from "gsap";
 import './App.css'
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'About me', href: '#', current: false },
-  { name: 'Experience', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
+  { name: 'Sobre mi', href: '#SobreMi', current: true },
+  { name: 'Proyectos', href: '#', current: false },
+  { name: 'Habilidadrs', href: '#', current: false },
+  { name: 'Footee', href: '#', current: false },
 ]
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [theme, setTheme] = useState(()=>{
+    if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return "dark"
+    }
+    return "light"
+  });
+
+  useEffect(()=>{
+    if (theme == "dark"){
+      document.querySelector('html').classList.add('dark')
+    }
+    else{
+      document.querySelector('html').classList.remove('dark')
+    }
+  }, [theme])
+
+  const cambiaTheme = () => {
+    setTheme(prevTheme => prevTheme == "light" ? "dark" : "light" )
+  }
 
   return (
+
+    
+
     <>
-      <Disclosure as="nav" className="bg-gray-800">
+      <Disclosure as="nav" className="sticky top-0 bg-gradient-to-b dark:from-indigo-950 dark:to-black from-slate-500 to-slate-300 ">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -39,7 +62,7 @@ function App() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center right-7">
                   <img
-                    className="h-10 w-auto" src="/img/E.png" alt="Logo"
+                    className="h-10 w-auto dark:bg-slate-900 bg-slate-200 rounded-full" src="/img/E.png" alt="Logo"
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
@@ -49,8 +72,8 @@ function App() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium'
+                          item.current ? 'bg-blue-400 text-black dark:bg-blue-950 dark:text-white' : 'text-gray-950 hover:bg-gray-500 hover:text-white dark:text-gray-300 dark:hover:bg-gray-700',
+                          'rounded-md px-3 py-2 text-sm font-medium bg-opacity-50'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
@@ -60,15 +83,16 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
-                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                >
-                  <span className="absolute -inset-1.5" />
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
+              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">               
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" value="" className="sr-only peer" onClick={cambiaTheme}/>
+                  <div className="w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-1 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-900 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-blue-500">
+                    <div className="flex w-full h-7 justify-center items-center">
+                      <SunIcon className="h-7 w-6 text-white" aria-hidden="true" />
+                      <MoonIcon className="h-7 w-6 text-white" aria-hidden="true" />
+                    </div>
+                  </div>
+                </label>
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
@@ -147,18 +171,22 @@ function App() {
         </>
       )}
     </Disclosure>
-    <div className='flex items-center justify-around'>
-    <div className='w-full h-96 overflow-hidden'>
-      <img className='w-full' src="/img/fondoazul.gif" alt="fondo" />
-    </div>
-    <div className='absolute justify-center flex items-center flex-col'>
-      <div>
-        <img className='w-20 content-center' src="img/E.png" alt="logo" />
+    <section className='flex justify-center h-screen dark:bg-black bg-gray-100'>
+      <div className='relative justify-center flex items-center flex-col h-1/2 w-1/2'>
+        <img className='w-20 content-center rounded-full dark:bg-slate-900 bg-slate-200' src="img/E.png" alt="logo" />
+        <h1 className='dark:text-gray-100 text-black text-3xl'>Elías Cordova</h1>
+        <p className='dark:text-blue-300 text-blue-900 brillo'>Desarrollador de buenos proyectos</p>
+        <div className='mt-5 rounded-lg shadow-2xl px-5 py-3 border border-gray-200 dark:border-gray-700'>
+          <p className='dark:text-gray-100 text-black'>Tengo 24 años, soy un ingeniero en informatica, egresado en la universidad UNEXCA, 
+          Me gusta los videojuegos de estrategia y el anime, soy muy curioso y empeze a programar a mediados de la universidad. 
+          He trabajado en el front-end, me considero flexible enfocado en el diseño y funcionalidades, 
+          adicionalmente poseo conocimientos básicos del back-end.</p>
+        </div>
       </div>
-      <h1 className='text-gray-100 text-3xl'>Elías Cordova</h1>
-      <h2 className='text-yellow-200 brillo'>Desarrollador de buenos proyectos</h2>
-    </div>
-    </div>
+    </section>
+    <section className=''>
+      
+    </section>
     </>
   )
 }
