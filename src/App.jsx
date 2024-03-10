@@ -1,14 +1,14 @@
 import { Fragment, useEffect, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon, UserIcon, SunIcon, MoonIcon} from '@heroicons/react/24/outline'
+import { IconMenu2, IconSun, IconMoon, IconX, IconWorld, IconFileCv,IconBrandBulma, IconBrandGithub, IconBrandReact,IconBrandJavascript,IconBrandHtml5,IconBrandSass,IconBrandCss3,IconBrandVite,IconBrandWordpress,IconBrandLaravel,IconBrandTailwind,IconBrandMysql} from '@tabler/icons-react';
 import { gsap } from "gsap";
 import './App.css'
 
 const navigation = [
   { name: 'Sobre mi', href: '#SobreMi', current: true },
-  { name: 'Proyectos', href: '#', current: false },
-  { name: 'Habilidadrs', href: '#', current: false },
-  { name: 'Footee', href: '#', current: false },
+  { name: 'Proyectos', href: '#Proyectos', current: false },
+  { name: 'Habilidades', href: '#Habilidades', current: false },
+  { name: 'Footer', href: '#Footer', current: false },
 ]
 
 
@@ -39,10 +39,8 @@ function App() {
 
   return (
 
-    
-
     <>
-      <Disclosure as="nav" className="sticky top-0 bg-gradient-to-b dark:from-indigo-950 dark:to-black from-slate-500 to-slate-300 ">
+      <Disclosure as="nav" className="sticky z-10 top-0 bg-gradient-to-b dark:from-indigo-950 dark:to-black from-slate-300 to-slate-100 backdrop-blur-2xl">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -53,9 +51,9 @@ function App() {
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                    <IconX className="block h-6 w-6" aria-hidden="true" />
                   ) : (
-                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                    <IconMenu2 className="block h-6 w-6" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
@@ -72,8 +70,8 @@ function App() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-blue-400 text-black dark:bg-blue-950 dark:text-white' : 'text-gray-950 hover:bg-gray-500 hover:text-white dark:text-gray-300 dark:hover:bg-gray-700',
-                          'rounded-md px-3 py-2 text-sm font-medium bg-opacity-50'
+                          item.current ? 'bg-blue-300 text-black dark:bg-blue-900 dark:text-white' : 'text-gray-950 hover:bg-gray-300 hover:text-gray-800 dark:text-gray-300 dark:hover:bg-gray-700',
+                          'rounded-md px-3 py-2 text-sm font-medium bg-opacity-80 dark:bg-opacity-50'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
@@ -88,8 +86,8 @@ function App() {
                   <input type="checkbox" value="" className="sr-only peer" onClick={cambiaTheme}/>
                   <div className="w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-1 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-900 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-blue-500">
                     <div className="flex w-full h-7 justify-center items-center">
-                      <SunIcon className="h-7 w-6 text-white" aria-hidden="true" />
-                      <MoonIcon className="h-7 w-6 text-white" aria-hidden="true" />
+                      <IconSun className="h-7 w-6 text-white" aria-hidden="true" />
+                      <IconMoon className="h-7 w-6 text-white" aria-hidden="true" />
                     </div>
                   </div>
                 </label>
@@ -97,10 +95,10 @@ function App() {
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="relative flex rounded-full text-gray-400 p-1 hover:text-white bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <Menu.Button className="relative flex rounded-full p-1 text-sm text-blue-600 hover:text-blue-900 bg-gray-300 border-2 border-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-500 dark:text-blue-400 dark:bg-black dark:border-gray-600 dark:focus:ring-blue-700 dark:hover:text-white">
                       <span className="absolute -inset-1.5" />
-                      <span className="sr-only">Open user menu</span>
-                      <UserIcon className='h-6 w-6 rounded-full' aria-hidden="true"/>
+                      <span className="sr-only">Idioma</span>
+                      <IconWorld className='h-6 w-6 rounded-full'/>
                     </Menu.Button>
                   </div>
                   <Transition
@@ -119,7 +117,7 @@ function App() {
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Your Profile
+                            <i className='font-bold font-2xl p-2'>EN</i> English
                           </a>
                         )}
                       </Menu.Item>
@@ -129,17 +127,7 @@ function App() {
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Settings
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Sign out
+                           <i className='font-bold font-2xl p-2'>ES</i> Español
                           </a>
                         )}
                       </Menu.Item>
@@ -151,14 +139,14 @@ function App() {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2">
+            <div className="space-y-1 px-2 pb-3 pt-2 w-full fixed bg-gradient-to-t">
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                    item.current ? 'bg-blue-300 text-black dark:bg-blue-900 dark:text-white' : 'text-gray-950 hover:bg-gray-300 hover:text-gray-800 dark:text-gray-300 dark:hover:bg-gray-700',
                     'block rounded-md px-3 py-2 text-base font-medium'
                   )}
                   aria-current={item.current ? 'page' : undefined}
@@ -171,21 +159,61 @@ function App() {
         </>
       )}
     </Disclosure>
-    <section className='flex justify-center h-screen dark:bg-black bg-gray-100'>
-      <div className='relative justify-center flex items-center flex-col h-1/2 w-1/2'>
-        <img className='w-20 content-center rounded-full dark:bg-slate-900 bg-slate-200' src="img/E.png" alt="logo" />
+    <section className='flex justify-center py-6 my-4' id='SobreMi'>
+      <div className='relative justify-center flex items-center flex-col h-1/2 lg:w-1/2 w-2/3'>
+        <img className='w-20 content-center' src="img/E.png" alt="logo" />
         <h1 className='dark:text-gray-100 text-black text-3xl'>Elías Cordova</h1>
-        <p className='dark:text-blue-300 text-blue-900 brillo'>Desarrollador de buenos proyectos</p>
-        <div className='mt-5 rounded-lg shadow-2xl px-5 py-3 border border-gray-200 dark:border-gray-700'>
-          <p className='dark:text-gray-100 text-black'>Tengo 24 años, soy un ingeniero en informatica, egresado en la universidad UNEXCA, 
-          Me gusta los videojuegos de estrategia y el anime, soy muy curioso y empeze a programar a mediados de la universidad. 
-          He trabajado en el front-end, me considero flexible enfocado en el diseño y funcionalidades, 
-          adicionalmente poseo conocimientos básicos del back-end.</p>
+        <p className='dark:text-blue-300 text-blue-900 brillo'>Front-end Developer</p>
+          <div className='mt-5 rounded-lg shadow-lg dark:bg-gray-950 bg-gray-100 px-5 py-3 border border-gray-300 dark:border-gray-800 dark:shadow-gray-800'>
+            <p className='p-3 dark:text-gray-100 text-black'>Tengo 24 años, soy un ingeniero en informatica, egresado en la universidad UNEXCA, 
+            Me gusta los videojuegos de estrategia y el anime, soy muy curioso y empeze a programar a mediados de la universidad. 
+            He trabajado en el front-end, me considero flexible enfocado en el diseño y funcionalidades, 
+            adicionalmente poseo conocimientos básicos del back-end.</p>
+            <div className='pt-5'>
+              <button className='flex border rounded-lg p-2 border-gray-300 bg-blue-200 hover:bg-blue-400 dark:border-gray-700 dark:bg-blue-900 dark:text-gray-300 dark:hover:bg-blue-700'>
+                <IconFileCv className=''/> Descargar Curriculum
+              </button>
+          </div>
         </div>
       </div>
     </section>
-    <section className=''>
-      
+    <section className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-screen-xl jusitify-around mx-auto px-5' id='Proyectos'>
+      <article className='rounded-lg shadow-lg px-4 py-3 dark:text-white border border-gray-300 dark:border-gray-800 dark:shadow-gray-800'>
+        <h4 className='brillo dark:text-blue-300 text-blue-900'>Katherine boean</h4>
+        <div className='py-3'> 
+          <img className='rounded-md' src="img\Katherineboan.jpg" alt="katherineboean" />
+        </div>
+        <p className='p-2'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi amet sit dignissimos.</p>
+        <a href="https://katherineboean.com">
+          <button className='font-bold py-2 px-3 rounded-lg border border-gray-300 bg-blue-200 hover:bg-blue-400 dark:border-gray-700 dark:bg-blue-900 dark:text-gray-300 dark:hover:bg-blue-700'>
+            Visitar
+          </button>
+        </a> 
+      </article>
+      <article className='rounded-lg shadow-lg px-5 py-3 dark:text-white border border-gray-300 dark:border-gray-800 dark:shadow-gray-800'>
+        <h4 className='brillo dark:text-blue-300 text-blue-900'>OnceOnce Inmobiliaria</h4>
+        <div className='py-3'> 
+          <img className='rounded-md' src="img\Onceonceinmobiliaria.jpg" alt="OnceOnce Inmobiliaria" />
+        </div>
+        <p className='p-2'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi amet sit dignissimos.</p>
+        <a href="https://onceonceinmobiliaria.com">
+          <button className='font-bold py-2 px-3 rounded-lg border border-gray-300 bg-blue-200 hover:bg-blue-400 dark:border-gray-700 dark:bg-blue-900 dark:text-gray-300 dark:hover:bg-blue-700'>
+            Visitar
+          </button>
+        </a>             
+      </article>
+      <article className='rounded-lg shadow-lg px-5 py-3 dark:text-white border border-gray-300 dark:border-gray-800 dark:shadow-gray-800'>
+        <h4 className='brillo dark:text-blue-300 text-blue-900'></h4>
+        <div className=''> 
+          <img className='rounded-md' src="img\.jpg" alt="" />
+        </div>
+        <p className=''>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi amet sit dignissimos.</p>
+        <a href="">
+          <button className='font-bold py-2 px-3 rounded-lg border border-gray-300 bg-blue-200 hover:bg-blue-400 dark:border-gray-700 dark:bg-blue-900 dark:text-gray-300 dark:hover:bg-blue-700'>
+            Visitar
+          </button>
+        </a>             
+      </article>
     </section>
     </>
   )
