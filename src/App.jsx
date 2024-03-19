@@ -3,6 +3,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { IconMenu2, IconSun, IconMoon, IconX, IconWorld, IconFileCv,IconBrandBulma, IconBrandGithub, IconBrandReact,IconBrandJavascript,IconBrandHtml5,IconBrandSass,IconBrandCss3,IconBrandVite,IconBrandWordpress,IconBrandLaravel,IconBrandTailwind,IconBrandMysql} from '@tabler/icons-react';
 import { gsap } from "gsap";
 import './App.css'
+import { ProyectCard } from './ProyectCard.jsx';
 
 const navigation = [
   { name: 'Sobre mi', href: '#SobreMi', current: true },
@@ -165,56 +166,47 @@ function App() {
         <h1 className='dark:text-gray-100 text-black text-3xl'>Elías Cordova</h1>
         <p className='dark:text-blue-300 text-blue-900 brillo'>Front-end Developer</p>
           <div className='mt-5 rounded-lg shadow-lg dark:bg-gray-950 bg-gray-100 px-5 py-3 border border-gray-300 dark:border-gray-800 dark:shadow-gray-800'>
-            <p className='p-3 dark:text-gray-100 text-black'>Tengo 24 años, soy un ingeniero en informatica, egresado en la universidad UNEXCA, 
-            Me gusta los videojuegos de estrategia y el anime, soy muy curioso y empeze a programar a mediados de la universidad. 
-            He trabajado en el front-end, me considero flexible enfocado en el diseño y funcionalidades, 
-            adicionalmente poseo conocimientos básicos del back-end.</p>
+            <p className='p-3 dark:text-gray-100 text-black'>Soy un ingeniero en informática apasionado por la programación y la tecnología. 
+            Con 24 años de edad, mi trayectoria académica me llevó a graduarme en la Universidad UNEXCA. 
+            Durante mi tiempo en la universidad, descubrí mi amor por los videojuegos de estrategia y el anime, lo que me inspiró a explorar el mundo de la programación.</p>
             <div className='pt-5'>
+            <a href="docs\curriculum.pdf">
               <button className='flex border rounded-lg p-2 border-gray-300 bg-blue-200 hover:bg-blue-400 dark:border-gray-700 dark:bg-blue-900 dark:text-gray-300 dark:hover:bg-blue-700'>
-                <IconFileCv className=''/> Descargar Curriculum
+                <IconFileCv /> Descargar Curriculum
               </button>
+            </a>
           </div>
         </div>
       </div>
     </section>
-    <section className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-screen-xl jusitify-around mx-auto px-5' id='Proyectos'>
-      <article className='rounded-lg shadow-lg px-4 py-3 dark:text-white border border-gray-300 dark:border-gray-800 dark:shadow-gray-800'>
-        <h4 className='brillo dark:text-blue-300 text-blue-900'>Katherine boean</h4>
-        <div className='py-3'> 
-          <img className='rounded-md' src="img\Katherineboan.jpg" alt="katherineboean" />
-        </div>
-        <p className='p-2'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi amet sit dignissimos.</p>
-        <a href="https://katherineboean.com">
-          <button className='font-bold py-2 px-3 rounded-lg border border-gray-300 bg-blue-200 hover:bg-blue-400 dark:border-gray-700 dark:bg-blue-900 dark:text-gray-300 dark:hover:bg-blue-700'>
-            Visitar
-          </button>
-        </a> 
-      </article>
-      <article className='rounded-lg shadow-lg px-5 py-3 dark:text-white border border-gray-300 dark:border-gray-800 dark:shadow-gray-800'>
-        <h4 className='brillo dark:text-blue-300 text-blue-900'>OnceOnce Inmobiliaria</h4>
-        <div className='py-3'> 
-          <img className='rounded-md' src="img\Onceonceinmobiliaria.jpg" alt="OnceOnce Inmobiliaria" />
-        </div>
-        <p className='p-2'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi amet sit dignissimos.</p>
-        <a href="https://onceonceinmobiliaria.com">
-          <button className='font-bold py-2 px-3 rounded-lg border border-gray-300 bg-blue-200 hover:bg-blue-400 dark:border-gray-700 dark:bg-blue-900 dark:text-gray-300 dark:hover:bg-blue-700'>
-            Visitar
-          </button>
-        </a>             
-      </article>
-      <article className='rounded-lg shadow-lg px-5 py-3 dark:text-white border border-gray-300 dark:border-gray-800 dark:shadow-gray-800'>
-        <h4 className='brillo dark:text-blue-300 text-blue-900'></h4>
-        <div className=''> 
-          <img className='rounded-md' src="img\.jpg" alt="" />
-        </div>
-        <p className=''>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi amet sit dignissimos.</p>
-        <a href="">
-          <button className='font-bold py-2 px-3 rounded-lg border border-gray-300 bg-blue-200 hover:bg-blue-400 dark:border-gray-700 dark:bg-blue-900 dark:text-gray-300 dark:hover:bg-blue-700'>
-            Visitar
-          </button>
-        </a>             
-      </article>
+    <section className='flex justify-center py-6 my-4 flex-col items-center' id='Proyectos'>
+      <h3 className='text-blue-950 text-3xl dark:text-blue-300 brillo'>Proyectos</h3>
+      <div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-screen-2xl jusitify-around mx-auto px-5' >
+        <ProyectCard titulo="Katherine boean" imagen="img\Katherineboan.jpg" link="https://katherineboean.com" 
+          descripcion="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi amet sit dignissimos." >
+          <IconBrandWordpress />
+          <IconBrandSass />
+          <IconBrandBulma />
+          <IconBrandLaravel/>
+        </ProyectCard>
+        <ProyectCard titulo="OnceOnce Inmobiliaria" imagen="img\Onceonceinmobiliaria.jpg" link="https://onceonceinmobiliaria.com" 
+          descripcion="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi amet sit dignissimos." >
+          <IconBrandWordpress />
+          <IconBrandSass />
+          <IconBrandBulma />
+          <IconBrandLaravel/>
+        </ProyectCard>
+        <ProyectCard titulo="Proyecto 3" imagen="" link="" 
+          descripcion="lorem ipsum in nomini patri trikitri trucutru" >
+        </ProyectCard>
+      </div>
     </section>
+    <section>
+      
+    </section>
+    <footer>
+
+    </footer>
     </>
   )
 }
