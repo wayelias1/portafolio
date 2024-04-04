@@ -5,3 +5,9 @@
 .brillo{
   filter: drop-shadow(0 0 7px rgb(83, 112, 255));
 }
+
+.Timeline i{
+  transform: translateY(10%);
+  transform: translateX(-120%);
+  z-index: 1;
+}
