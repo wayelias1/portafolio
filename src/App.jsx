@@ -1,9 +1,13 @@
-import { Fragment, useEffect, useState, useMemo} from 'react'
+import { Fragment, useEffect, useState, useMemo, useRef} from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { IconMenu2, IconSun, IconMoon, IconX, IconWorld, IconFileCv,IconBrandBulma, IconBrandGithub, IconBrandReact,IconBrandJavascript,IconBrandHtml5,IconBrandSass,IconBrandCss3,IconBrandVite,IconBrandWordpress,IconBrandLaravel,IconBrandTailwind,IconBrandMysql} from '@tabler/icons-react';
-import gsap  from "gsap";
+import { IconMenu2, IconSun, IconMoon, IconX, IconWorld, IconFileCv,IconBrandBulma, IconBrandGithub, IconBrandReact,IconBrandJavascript,IconBrandHtml5,IconBrandSass,IconBrandCss3,IconBrandVite,IconBrandWordpress,IconBrandLaravel,IconBrandTailwind,IconBrandMysql, IconBrandPhp} from '@tabler/icons-react';
+import gsap from "gsap";
 import './App.css'
 import { ProyectCard } from './components/ProyectCard';
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
+import {Opciones} from './components/OptionsParticles';
+import { SkillCard } from './components/SkillCard'; 
 
 
 const navigation = [
@@ -19,6 +23,7 @@ function classNames(...classes) {
 }
 
 function App() {
+  const [init, setInit] = useState(false);
   const [theme, setTheme] = useState(()=>{
     if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
       return "dark"
@@ -27,6 +32,13 @@ function App() {
   });
 
   useEffect(()=>{
+
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);    
+    }).then(() => {
+      setInit(true);
+    });
+
     if (theme == "dark"){
       document.querySelector('html').classList.add('dark')
     }
@@ -38,13 +50,30 @@ function App() {
   const cambiaTheme = () => {
     setTheme(prevTheme => prevTheme == "light" ? "dark" : "light" )
   }
+  
+  const particlesLoaded = (container) => {
+    console.log(container);
+  };
+
+var tl = gsap.timeline();
+tl.to("#timeline-art-icon", {opacity: 1, duration: 1});
+tl.to("#timeline-art-box", {opacity: 1, x: 90,duration: 1});
 
   return (
     <>
       <div className='fixed h-full w-full object-cover'>
-        <img className='fixed h-full w-full opacity-30 dark:opacity-100 transition-all duration-500' src="img/pxfuel.jpg" alt="" />
+        <img className='fixed h-full w-full transition-all duration-500 opacity-50' src="img/pxfuel.jpg" alt="" />
         <div className='absolute z-10 h-full w-full bg-slate-50 dark:bg-black opacity-50'></div>
       </div>
+
+      <div>
+        <Particles
+            id="tsparticles"
+            particlesLoaded={particlesLoaded}
+            options={Opciones}
+          />
+      </div>
+
       <Disclosure as="nav" className="sticky z-10 top-0 bg-gradient-to-b dark:from-indigo-950 dark:to-black from-indigo-500 to-blue-200 backdrop-blur-2xl transition-colors">
       {({ open }) => (
         <>
@@ -185,8 +214,8 @@ function App() {
     </section>
     <section className='flex justify-center py-6 my-4 flex-col items-center' id='Proyectos'>
       <h3 className='text-blue-800 text-3xl dark:text-blue-200 brillo hover:'>Proyectos</h3>
-      <div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-screen-2xl jusitify-around mx-auto px-5' >
-        <ProyectCard titulo="Katherine boean" imagen="img/Katherineboan.jpg" link="https://katherineboean.com" 
+      <div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-3 lg:gap-6 xl:gap-10 max-w-screen-2xl jusitify-around mx-auto px-5' >
+        <ProyectCard titulo="Katherine boean" imagen="img/Katherineboan.jpg" link="" 
           descripcion="Este proyecto fue desarrollado en base a las especificaciones proporcionadas por el cliente. Creé una landing page para promocionar su servicio, asegurándome de incluir información relevante y un diseño optimizado." >
           <IconBrandWordpress className='text-blue-800 dark:text-current' />
           <IconBrandSass className='text-blue-800 dark:text-current' />
@@ -207,26 +236,47 @@ function App() {
     </section>
     <section id='Miexperiencia' className='flex justify-center py-6 my-4 flex-col items-center'>
       <h4 className='text-blue-800 text-3xl dark:text-blue-200 brillo'>Mi experiencia</h4>
-      <div className='w-full flex justify-around items-center relative'>
+      <div className='w-full flex flex-col justify-around items-center relative md:flex-row'>
         <div className='relative'>
           <p className='text-black dark:text-white'>Mi primera experiencia trabajando como desarrollador web fue </p>
         </div>
-        <div className='relative col-span-2 space-y-8 before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:-translate-x-px before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent xl:before:mx-auto xl:before:translate-x-0'>
-          <article className='is-active group relative flex w-full items-center justify-between md:w-2/4 xl:w-full xl:justify-normal xl:even:flex-row-reverse xl:even:text-right'>
-            <i className='flex h-5 w-5 shrink-0 items-center justify-center rounded-full shadow bg-blue-500 xl:order-1 xl:group-odd:-translate-x-1/2 xl:group-even:translate-x-1/2'></i>
-            <div className='flex flex-col relative w-[calc(100%-4rem)] h-full p-4 py-4 shadow-lg border bg-slate-300 border-gray-300 dark:bg-slate-900 dark:border-gray-800 dark:shadow-gray-800 dark:text-white rounded-lg backdrop-blur-lg transition hover:scale-105'>
+        <div id='timeline' className='relative py-4 before:absolute before:inset-0 before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent xl:before:mx-auto xl:before:translate-x-0'>
+          <article id='timeline-art' className='is-active group relative flex w-full items-center justify-between md:w-2/4 xl:w-full xl:justify-normal xl:even:flex-row-reverse xl:even:text-right'>
+            <i id='timeline-art-icon' className='flex h-5 w-5 opacity-0 items-center justify-center rounded-full bg-blue-500'></i>
+            <div id='timeline-art-box' className='flex flex-col opacity-0 relative w-full h-full p-4 py-4 shadow-lg border bg-slate-300 border-gray-300 dark:bg-slate-900 dark:border-gray-800 dark:shadow-gray-800 dark:text-white rounded-lg backdrop-blur-lg transition hover:scale-105'>
               <h5>Movidagrafica</h5>
-              <p>FrontEnd Developer</p>
+              <p>FullStack Developer</p>
               <span>2023</span>
             </div>
           </article>
         </div>
       </div>
     </section>
-    <section id='Habilidades'>
+    <section id='Habilidades' className='flex justify-center py-6 my-4 flex-col items-center'>
+    <h4 className='text-blue-800 text-3xl dark:text-blue-200 brillo'>Mis Habilidades</h4>
+      <div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-3 lg:gap-6 xl:gap-10 max-w-screen-2xl jusitify-around mx-auto px-5'>
+        <SkillCard titulo='HTML5'>
+          <IconBrandHtml5 className='text-blue-800 dark:text-current' size={70}/>
+        </SkillCard>
+        <SkillCard titulo='CSS3'>
+          <IconBrandCss3 className='text-blue-800 dark:text-current' size={70}/>
+        </SkillCard>
+        <SkillCard titulo='Javascript'>
+          <IconBrandJavascript className='text-blue-800 dark:text-current' size={70}/>
+        </SkillCard>
+        <SkillCard titulo='SASS'>
+          <IconBrandSass className='text-blue-800 dark:text-current' size={70}/>
+        </SkillCard>
+        <SkillCard titulo='Laravel'>
+          <IconBrandLaravel className='text-blue-800 dark:text-current' size={70}/>
+        </SkillCard>
+        <SkillCard titulo='PHP'>
+          <IconBrandPhp className='text-blue-800 dark:text-current' size={70}/>
+        </SkillCard>
+      </div>
     </section>
     <footer id='Footer' className='relative flex justify-center bg-gradient-to-t py-3 dark:from-indigo-950 dark:to-black from-indigo-500 to-blue-200 dark:text-gray-100'>
-      <span>Copyright &copy; 2024 - Elias Cordova</span>
+      <span>Copyright &copy; Designed by: 2024 - Elias Cordova</span>
     </footer>
     </>
   )
