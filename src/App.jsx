@@ -56,8 +56,8 @@ function App() {
   };
 
 var tl = gsap.timeline();
-tl.to("#timeline-art-icon", {opacity: 1, duration: 1});
-tl.to("#timeline-art-box", {opacity: 1, x: 90,duration: 1});
+tl.to("#timeline-art-icon", {opacity: 1, x:1, duration: 0.5});
+tl.to("#timeline-art-box", {opacity: 1, x: 30,duration: 0.5});
 
   return (
     <>
@@ -214,9 +214,9 @@ tl.to("#timeline-art-box", {opacity: 1, x: 90,duration: 1});
     </section>
     <section className='flex justify-center py-6 my-4 flex-col items-center' id='Proyectos'>
       <h3 className='text-blue-800 text-3xl dark:text-blue-200 brillo hover:'>Proyectos</h3>
-      <div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-3 lg:gap-6 xl:gap-10 max-w-screen-2xl jusitify-around mx-auto px-5' >
-        <ProyectCard titulo="Katherine boean" imagen="img/Katherineboan.jpg" link="" 
-          descripcion="Este proyecto fue desarrollado en base a las especificaciones proporcionadas por el cliente. Creé una landing page para promocionar su servicio, asegurándome de incluir información relevante y un diseño optimizado." >
+      <div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 xl:gap-10 max-w-screen-2xl jusitify-around mx-auto px-7' >
+        <ProyectCard titulo="Katherine boean" imagen="img/Katherineboan.jpg" link="https://katherineboean.com" 
+          descripcion="Este proyecto se basó en las especificaciones del cliente y consistió en crear una landing page para promocionar su servicio. En ella, se incluyó información relevante y precisa." >
           <IconBrandWordpress className='text-blue-800 dark:text-current' />
           <IconBrandSass className='text-blue-800 dark:text-current' />
           <IconBrandBulma className='text-blue-800 dark:text-current' />
@@ -236,14 +236,16 @@ tl.to("#timeline-art-box", {opacity: 1, x: 90,duration: 1});
     </section>
     <section id='Miexperiencia' className='flex justify-center py-6 my-4 flex-col items-center'>
       <h4 className='text-blue-800 text-3xl dark:text-blue-200 brillo'>Mi experiencia</h4>
-      <div className='w-full flex flex-col justify-around items-center relative md:flex-row'>
-        <div className='relative'>
-          <p className='text-black dark:text-white'>Mi primera experiencia trabajando como desarrollador web fue </p>
+      <div className='w-full flex flex-col justify-evenly items-center relative md:flex-row'>
+        <div className='relative w-1/2'>
+          <p className='text-black dark:text-white'>Mi primera experiencia trabajando como desarrollador web fue en la empresa
+            Movidagrafica, donde aprendi a usar wordpress y mejorar mis habilidades como programador como FullStack junior.
+          </p>
         </div>
-        <div id='timeline' className='relative py-4 before:absolute before:inset-0 before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent xl:before:mx-auto xl:before:translate-x-0'>
+        <div id='timeline' className='relative py-4 before:absolute before:inset-0 before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent before:mx-3'>
           <article id='timeline-art' className='is-active group relative flex w-full items-center justify-between md:w-2/4 xl:w-full xl:justify-normal xl:even:flex-row-reverse xl:even:text-right'>
-            <i id='timeline-art-icon' className='flex h-5 w-5 opacity-0 items-center justify-center rounded-full bg-blue-500'></i>
-            <div id='timeline-art-box' className='flex flex-col opacity-0 relative w-full h-full p-4 py-4 shadow-lg border bg-slate-300 border-gray-300 dark:bg-slate-900 dark:border-gray-800 dark:shadow-gray-800 dark:text-white rounded-lg backdrop-blur-lg transition hover:scale-105'>
+            <i id='timeline-art-icon' className='flex absolute h-5 w-5 opacity-0 items-center justify-center rounded-full bg-blue-500 mx-1'></i>
+            <div id='timeline-art-box' className='flex flex-col opacity-0 relative w-full h-full p-4 py-4 shadow-lg border min-w-max bg-slate-300 border-gray-300 dark:bg-slate-900 dark:border-gray-800 dark:shadow-gray-800 dark:text-white rounded-lg backdrop-blur-lg transition hover:scale-105'>
               <h5>Movidagrafica</h5>
               <p>FullStack Developer</p>
               <span>2023</span>

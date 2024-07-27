@@ -1,12 +1,12 @@
 export function ProyectCard ({titulo, imagen, descripcion, children, link}){
     return (
-        <article className='flex flex-col relative h-full rounded-lg shadow-lg px-10 py-8  border bg-slate-300 border-gray-300 dark:bg-slate-900 dark:border-gray-800 dark:shadow-gray-800 dark:text-white transition hover:scale-105'>
+        <article className='flex flex-col relative h-full rounded-lg shadow-lg px-12 py-12 border bg-slate-300 border-gray-300 dark:bg-slate-900 dark:border-gray-800 dark:shadow-gray-800 dark:text-white transition hover:scale-105'>
           <h4 className='text-xl dark:text-blue-300 text-blue-800'>{titulo}</h4>
           <div className='py-3 max-h-96'> 
             <img className='rounded-md h-56 w-full object-cover' src={imagen}/>
           </div>
           <div className="flex flex-col h-full justify-between">
-            <p className='p-2'>{descripcion}</p>
+            <p className='p-2 h-3/5'>{descripcion}</p>
             <div className='flex justify-between py-2 text-blue-300'>
               {children}
             </div>
