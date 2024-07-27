@@ -5,9 +5,11 @@ export function ProyectCard ({titulo, imagen, descripcion, children, link}){
           <div className='py-3 max-h-96'> 
             <img className='rounded-md h-56 w-full object-cover' src={imagen}/>
           </div>
-          <div className="flex flex-col h-full justify-between">
-            <p className='p-2'>{descripcion}</p>
-            <div className='flex justify-between py-2 text-blue-300'>
+          <div className="h-full">
+            <p className='p-2 text-justify'>{descripcion}</p>
+          </div>
+          <div className="flex flex-col">
+            <div className='flex justify-between py-2 my-6 text-blue-300'>
               {children}
             </div>
             <a className='w-fit' href={link}>
