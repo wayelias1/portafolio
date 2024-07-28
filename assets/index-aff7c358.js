@@ -1,1 +1,0 @@
-import{_ as o}from"./index-400ff768.js";async function i(t,a=!0){await t.addParticleUpdater("outModes",async e=>{const{OutOfCanvasUpdater:r}=await o(()=>import("./OutOfCanvasUpdater-16bdf173.js"),["assets/OutOfCanvasUpdater-16bdf173.js","assets/index-400ff768.js","assets/index-c0445810.css"]);return new r(e)},a)}export{i as loadOutModesUpdater};
