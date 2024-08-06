@@ -1,65 +1,105 @@
-import { Fragment, useEffect, useState, useMemo, useRef } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import {IconMenu2,IconSun,IconMoon,IconX,IconWorld,IconFileCv,
+import { Fragment, useEffect, useState, useMemo, useRef } from "react"
+import { Disclosure, Menu, Transition } from "@headlessui/react"
+import {
+  IconMenu2, IconSun, IconMoon, IconX, IconWorld, IconFileCv,
 
-} from "@tabler/icons-react";
-import BrandIcon from "./library/BrandIcon";
-import gsap from "gsap";
-import "./App.css";
-import { ProyectCard } from "./components/ProyectCard";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
-import { Opciones } from "./components/OptionsParticles";
-import { SkillCard } from "./components/SkillCard";
+} from "@tabler/icons-react"
+import BrandIcon from "./library/BrandIcon"
+import gsap from "gsap"
+import "./App.css"
+import { ProyectCard } from "./components/ProyectCard"
+import Particles, { initParticlesEngine } from "@tsparticles/react"
+import { loadSlim } from "@tsparticles/slim"
+import { Opciones } from "./components/OptionsParticles"
+import { SkillCard } from "./components/SkillCard"
 
-import { Tooltip } from "react-tooltip";
-import { projects } from "./library/projects";
+import { Tooltip } from "react-tooltip"
+import { projects } from "./library/projects"
 
 const navigation = [
   { name: "Sobre mi", href: "#SobreMi", current: true },
   { name: "Proyectos", href: "#Proyectos", current: false },
   { name: "Mi experiencia", href: "#Miexperiencia", current: false },
   { name: "Footer", href: "#Footer", current: false },
-];
-
+]
+const skills = ["Wordpress", "Bulma", "Github", "React", "Html5", "Sass", "Laravel", "Php", "Css3", "Javascript", "Mysql"]
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(" ")
 }
 
 function App() {
-  const [init, setInit] = useState(false);
+  const [init, setInit] = useState(false)
   const [theme, setTheme] = useState(() => {
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "dark";
+      return "dark"
     }
-    return "light";
-  });
+    return "light"
+  })
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
+      await loadSlim(engine)
     }).then(() => {
-      setInit(true);
-    });
+      setInit(true)
+    })
 
     if (theme == "dark") {
-      document.querySelector("html").classList.add("dark");
+      document.querySelector("html").classList.add("dark")
     } else {
-      document.querySelector("html").classList.remove("dark");
+      document.querySelector("html").classList.remove("dark")
     }
-  }, [theme]);
+  }, [theme])
 
   const cambiaTheme = () => {
-    setTheme((prevTheme) => (prevTheme == "light" ? "dark" : "light"));
-  };
+    setTheme((prevTheme) => (prevTheme == "light" ? "dark" : "light"))
+  }
 
   const particlesLoaded = (container) => {
-    console.log(container);
-  };
+    console.log(container)
+  }
 
-var tl = gsap.timeline();
-tl.to("#timeline-art-icon", {opacity: 1, duration: 0.5});
-tl.to("#timeline-art-box", {opacity: 1, x:30, duration: 0.5});
+  var tl = gsap.timeline()
+  tl.to("#timeline-art-icon", { opacity: 1, duration: 0.5 })
+  tl.to("#timeline-art-box", { opacity: 1, x: 30, duration: 0.5 })
+
+  const projectList = projects.map(({ titulo, imagen, link, descripcion, boton, skills = [] }) => {
+
+    const iconsList = skills.map(({ icon }) => (
+      <BrandIcon
+        key={icon}
+        icon={icon}
+        dataId={icon}
+        dataTop="top"
+        className="text-blue-800 dark:text-current"
+      />
+    ))
+    return (<ProyectCard
+      key={titulo}
+      titulo={titulo}
+      imagen={imagen}
+      link={link}
+      descripcion={descripcion}
+      boton={boton}
+    >
+      {iconsList}
+    </ProyectCard>
+    )
+
+  }
+  )
+  const mySkills = skills?.map((skill) => (
+    <SkillCard titulo={skill} key={skill}>
+      <BrandIcon
+
+        icon={skill}
+        dataId={skill}
+        dataTop="top"
+        className="text-blue-800 dark:text-current"
+        size="70"
+      />
+    </SkillCard>
+  ))
+
 
   return (
     <>
@@ -204,107 +244,79 @@ tl.to("#timeline-art-box", {opacity: 1, x:30, duration: 0.5});
               </div>
             </div>
 
-          <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2 w-full fixed bg-gradient-to-t">
-              {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-blue-300 text-black dark:bg-blue-900 dark:text-white' : 'text-gray-950 hover:bg-gray-300 hover:text-gray-800 dark:text-gray-300 dark:hover:bg-gray-700',
-                    'block rounded-md px-3 py-2 text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
-                </Disclosure.Button>
-              ))}
-            </div>
-          </Disclosure.Panel>
-        </>
-      )}
-    </Disclosure>
-    <section className='flex justify-center py-6 my-4' id='SobreMi'>
-      <div className='relative justify-center flex items-center flex-col h-1/2 lg:w-1/2 w-2/3'>
-        <img className='w-20 content-center rounded-full ' src="img/Elias.jpg" alt="persona" />
-        <h1 className='dark:text-gray-100 text-black text-3xl'>Elías Cordova</h1>
-        <p className='dark:text-blue-300 text-blue-900 brillo'>Front-end Developer</p>
+            <Disclosure.Panel className="sm:hidden">
+              <div className="space-y-1 px-2 pb-3 pt-2 w-full fixed bg-gradient-to-t">
+                {navigation.map((item) => (
+                  <Disclosure.Button
+                    key={item.name}
+                    as="a"
+                    href={item.href}
+                    className={classNames(
+                      item.current ? 'bg-blue-300 text-black dark:bg-blue-900 dark:text-white' : 'text-gray-950 hover:bg-gray-300 hover:text-gray-800 dark:text-gray-300 dark:hover:bg-gray-700',
+                      'block rounded-md px-3 py-2 text-base font-medium'
+                    )}
+                    aria-current={item.current ? 'page' : undefined}
+                  >
+                    {item.name}
+                  </Disclosure.Button>
+                ))}
+              </div>
+            </Disclosure.Panel>
+          </>
+        )}
+      </Disclosure>
+      <section className='flex justify-center py-6 my-4' id='SobreMi'>
+        <div className='relative justify-center flex items-center flex-col h-1/2 lg:w-1/2 w-2/3'>
+          <img className='w-20 content-center rounded-full ' src="img/Elias.jpg" alt="persona" />
+          <h1 className='dark:text-gray-100 text-black text-3xl'>Elías Cordova</h1>
+          <p className='dark:text-blue-300 text-blue-900 brillo'>Front-end Developer</p>
           <div className='mt-5 rounded-lg shadow-lg dark:bg-gray-950 bg-gray-100 px-5 py-3 border border-gray-300 dark:border-gray-800 dark:shadow-gray-800'>
-            <p className='p-3 text-black dark:text-gray-100'>Soy un ingeniero en informática apasionado por la programación y la tecnología. 
-            Con 24 años de edad, mi trayectoria académica me llevó a graduarme en la Universidad UNEXCA. 
-            Durante mi tiempo en la universidad, descubrí mi amor por los videojuegos de estrategia y el anime, lo que me inspiró a explorar el mundo de la programación.</p>
+            <p className='p-3 text-black dark:text-gray-100'>Soy un ingeniero en informática apasionado por la programación y la tecnología.
+              Con 24 años de edad, mi trayectoria académica me llevó a graduarme en la Universidad UNEXCA.
+              Durante mi tiempo en la universidad, descubrí mi amor por los videojuegos de estrategia y el anime, lo que me inspiró a explorar el mundo de la programación.</p>
             <div className='pt-5'>
-            <a href="/docs/curriculum.pdf">
-              <button className='flex justify-center items-center border rounded-lg p-2 border-indigo-300 bg-blue-200 hover:bg-blue-400 dark:border-indigo-700 dark:bg-blue-900 dark:text-gray-300 dark:hover:bg-blue-700 transition hover:scale-105'>
-                <IconFileCv /> Descargar Curriculum
-              </button>
-            </a>
+              <a href="/docs/curriculum.pdf">
+                <button className='flex justify-center items-center border rounded-lg p-2 border-indigo-300 bg-blue-200 hover:bg-blue-400 dark:border-indigo-700 dark:bg-blue-900 dark:text-gray-300 dark:hover:bg-blue-700 transition hover:scale-105'>
+                  <IconFileCv /> Descargar Curriculum
+                </button>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section className='flex justify-center py-6 my-4 flex-col items-center' id='Proyectos'>
-      <h3 className='text-blue-700 text-3xl dark:text-blue-200 brillo hover:'>Proyectos</h3>
-      <div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 xl:gap-10 max-w-screen-2xl jusitify-around mx-auto px-7' >
-      {projects.map((project, index) => (
-            <ProyectCard
-              titulo={project.titulo}
-              imagen={project.imagen}
-              link={project.link}
-              descripcion={project.descripcion}
-              boton={project.boton}
-            >
-              {project?.skills?.map((skill, skillIndex) => (
-                  <BrandIcon 
-                    key={index + "_" + skillIndex} 
-                    icon={skill.icon} 
-                    dataId={skillIndex + 1 + ''} 
-                    dataTop="top" 
-                    className="text-blue-800 dark:text-current"/>
-              ))}
-            </ProyectCard>
-          ))}
-      </div>
-    </section>
-    <section id='Miexperiencia' className='flex justify-center py-6 my-4 flex-col items-center'>
-      <h4 className='text-blue-700 text-3xl dark:text-blue-200 brillo'>Mi experiencia</h4>
-      <div className='w-full flex flex-col justify-evenly items-center relative md:flex-row'>
-        <div className='relative w-1/2'>
-          <p className='text-black dark:text-white'>Mi primera experiencia trabajando como desarrollador web fue en la empresa
-            Movidagrafica, donde aprendi a usar wordpress y mejorar mis habilidades como programador como FullStack junior.
-          </p>
+      </section>
+      <section className='flex justify-center py-6 my-4 flex-col items-center' id='Proyectos'>
+        <h3 className='text-blue-700 text-3xl dark:text-blue-200 brillo hover:'>Proyectos</h3>
+        <div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 xl:gap-10 max-w-screen-2xl jusitify-around mx-auto px-7' >
+          {projectList}
         </div>
-        <div id='timeline' className='relative py-4 before:absolute before:inset-0 before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent dark:before:via-slate-300 before:via-black before:to-transparent before:mx-3'>
-          <article id='timeline-art' className='is-active group relative flex w-full items-center justify-between md:w-2/4 xl:w-full xl:justify-normal xl:even:flex-row-reverse xl:even:text-right'>
-            <i id='timeline-art-icon' className='flex absolute h-5 w-5 opacity-0 items-center justify-center rounded-full bg-blue-500 mx-1'></i>
-            <div id='timeline-art-box' className='flex flex-col opacity-0 relative w-full h-full p-4 py-4 shadow-lg border min-w-max bg-indigo-100 border-gray-300 dark:bg-slate-900 dark:border-gray-800 dark:shadow-gray-800 dark:text-white rounded-lg backdrop-blur-lg transition hover:scale-105'>
-              <h5>Movidagrafica</h5>
-              <p>FullStack Developer</p>
-              <span>2023</span>
-            </div>
-          </article>
+      </section>
+      <section id='Miexperiencia' className='flex justify-center py-6 my-4 flex-col items-center'>
+        <h4 className='text-blue-700 text-3xl dark:text-blue-200 brillo'>Mi experiencia</h4>
+        <div className='w-full flex flex-col justify-evenly items-center relative md:flex-row'>
+          <div className='relative w-1/2'>
+            <p className='text-black dark:text-white'>Mi primera experiencia trabajando como desarrollador web fue en la empresa
+              Movidagrafica, donde aprendi a usar wordpress y mejorar mis habilidades como programador como FullStack junior.
+            </p>
+          </div>
+          <div id='timeline' className='relative py-4 before:absolute before:inset-0 before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent dark:before:via-slate-300 before:via-black before:to-transparent before:mx-3'>
+            <article id='timeline-art' className='is-active group relative flex w-full items-center justify-between md:w-2/4 xl:w-full xl:justify-normal xl:even:flex-row-reverse xl:even:text-right'>
+              <i id='timeline-art-icon' className='flex absolute h-5 w-5 opacity-0 items-center justify-center rounded-full bg-blue-500 mx-1'></i>
+              <div id='timeline-art-box' className='flex flex-col opacity-0 relative w-full h-full p-4 py-4 shadow-lg border min-w-max bg-indigo-100 border-gray-300 dark:bg-slate-900 dark:border-gray-800 dark:shadow-gray-800 dark:text-white rounded-lg backdrop-blur-lg transition hover:scale-105'>
+                <h5>Movidagrafica</h5>
+                <p>FullStack Developer</p>
+                <span>2023</span>
+              </div>
+            </article>
+          </div>
         </div>
-      </div>
-    </section>
-    <section id='Habilidades' className='flex justify-center py-6 my-4 flex-col items-center'>
-    <h4 className='text-blue-700 text-3xl dark:text-blue-200 brillo'>Mis Habilidades</h4>
-      <div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-3 lg:gap-6 xl:gap-10 max-w-screen-2xl jusitify-around mx-auto px-5'>
-      
-      {BrandIcon.skills?.map((skill, skillIndex) => (
-        <SkillCard titulo={skill.icon}>
-                  <BrandIcon 
-                    key={index + "_" + skillIndex} 
-                    icon={skill.icon} 
-                    dataId={skillIndex + 1 + ''} 
-                    dataTop="top" 
-                    className="text-blue-800 dark:text-current"
-                    size="70"
-                    />
-        </SkillCard>
-              ))}
-      
-        {/* <SkillCard titulo='HTML5'>
+      </section>
+      <section id='Habilidades' className='flex justify-center py-6 my-4 flex-col items-center'>
+        <h4 className='text-blue-700 text-3xl dark:text-blue-200 brillo'>Mis Habilidades</h4>
+        <div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-3 lg:gap-6 xl:gap-10 max-w-screen-2xl jusitify-around mx-auto px-5'>
+
+          {mySkills}
+
+          {/* <SkillCard titulo='HTML5'>
           <IconBrandHtml5 className='text-blue-800 dark:text-current' size={70}/>
         </SkillCard>
         <SkillCard titulo='CSS3'>
@@ -322,13 +334,13 @@ tl.to("#timeline-art-box", {opacity: 1, x:30, duration: 0.5});
         <SkillCard titulo='PHP'>
           <IconBrandPhp className='text-blue-800 dark:text-current' size={70}/>
         </SkillCard> */}
-      </div>
-    </section>
-    <footer id='Footer' className='relative flex justify-center bg-gradient-to-t py-3 dark:from-indigo-950 dark:to-black from-indigo-300 to-blue-200 dark:text-gray-100'>
-      <span>Copyright &copy; Designed by: 2024 - Elias Cordova</span>
-    </footer>
+        </div>
+      </section>
+      <footer id='Footer' className='relative flex justify-center bg-gradient-to-t py-3 dark:from-indigo-950 dark:to-black from-indigo-300 to-blue-200 dark:text-gray-100'>
+        <span>Copyright &copy; Designed by: 2024 - Elias Cordova</span>
+      </footer>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
