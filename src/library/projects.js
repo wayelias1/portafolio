@@ -2,9 +2,24 @@ export const projects = [
   {
     titulo: "Katherine boean",
     imagen: "img/Katherineboan.jpg",
-    link: "",
+    link: "https://katherineboean.com",
     descripcion:
       "Este proyecto fue desarrollado en base a las especificaciones proporcionadas por el cliente. Creé una landing page para promocionar su servicio, asegurándome de incluir información relevante y un diseño optimizado.",
+    boton: "Visitar",
+    skills: [
+      {
+        icon: 'Wordpress'
+      },
+      {
+        icon: 'Bulma'
+      },
+      {
+        icon: 'Sass'
+      },
+      {
+        icon: 'Laravel'
+      }
+    ]
   },
   {
     titulo: "OnceOnce Inmobiliaria",
@@ -12,6 +27,21 @@ export const projects = [
     link: "https://onceonceinmobiliaria.com",
     descripcion:
       "Este proyecto fue durante mi experiencia en Movidagrafica.co, colaboré en el desarrollo de un sitio web para una agencia inmobiliaria.",
+    boton: "Visitar",
+    skills: [
+      {
+        icon: 'Wordpress'
+      },
+      {
+        icon: 'Bulma'
+      },
+      {
+        icon: 'Sass'
+      },
+      {
+        icon: 'Laravel'
+      }
+    ]
   },
   {
     titulo: "Proyecto 3",
@@ -19,6 +49,10 @@ export const projects = [
     link: "",
     descripcion:
       "Este proyecto es una demostración de una página web estática desarrollada como molde para uso personal.",
+    boton: "Ver Codigo",
+    skills: [
+      
+    ]
   },
 ];
 

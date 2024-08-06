@@ -1,26 +1,9 @@
 import { Fragment, useEffect, useState, useMemo, useRef } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import {
-  IconMenu2,
-  IconSun,
-  IconMoon,
-  IconX,
-  IconWorld,
-  IconFileCv,
-  IconBrandBulma,
-  IconBrandGithub,
-  IconBrandReact,
-  IconBrandJavascript,
-  IconBrandHtml5,
-  IconBrandSass,
-  IconBrandCss3,
-  IconBrandVite,
-  IconBrandWordpress,
-  IconBrandLaravel,
-  IconBrandTailwind,
-  IconBrandMysql,
-  IconBrandPhp,
+import {IconMenu2,IconSun,IconMoon,IconX,IconWorld,IconFileCv,
+
 } from "@tabler/icons-react";
+import BrandIcon from "./library/BrandIcon";
 import gsap from "gsap";
 import "./App.css";
 import { ProyectCard } from "./components/ProyectCard";
@@ -30,7 +13,7 @@ import { Opciones } from "./components/OptionsParticles";
 import { SkillCard } from "./components/SkillCard";
 
 import { Tooltip } from "react-tooltip";
-import { projects } from "./projects";
+import { projects } from "./library/projects";
 
 const navigation = [
   { name: "Sobre mi", href: "#SobreMi", current: true },
@@ -75,8 +58,8 @@ function App() {
   };
 
 var tl = gsap.timeline();
-tl.to("#timeline-art-icon", {opacity: 1, x:1, duration: 0.5});
-tl.to("#timeline-art-box", {opacity: 1, x: 30,duration: 0.5});
+tl.to("#timeline-art-icon", {opacity: 1, duration: 0.5});
+tl.to("#timeline-art-box", {opacity: 1, x:30, duration: 0.5});
 
   return (
     <>
@@ -86,7 +69,7 @@ tl.to("#timeline-art-box", {opacity: 1, x: 30,duration: 0.5});
           src="img/pxfuel.jpg"
           alt=""
         />
-        <div className="absolute z-10 h-full w-full bg-slate-50 dark:bg-black opacity-50"></div>
+        <div className="absolute z-10 h-full w-full bg-slate-50 dark:bg-black opacity-80"></div>
       </div>
 
       <div>
@@ -99,7 +82,7 @@ tl.to("#timeline-art-box", {opacity: 1, x: 30,duration: 0.5});
 
       <Disclosure
         as="nav"
-        className="sticky z-10 top-0 bg-gradient-to-b dark:from-indigo-950 dark:to-black from-indigo-500 to-blue-200 backdrop-blur-2xl transition-colors"
+        className="sticky z-10 top-0 bg-gradient-to-b dark:from-indigo-950 dark:to-black from-indigo-300 to-blue-200 backdrop-blur-2xl transition-colors"
       >
         {({ open }) => (
           <>
@@ -118,9 +101,9 @@ tl.to("#timeline-art-box", {opacity: 1, x: 30,duration: 0.5});
                   </Disclosure.Button>
                 </div>
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                  <div className="flex flex-shrink-0 items-center right-7">
+                  <div className="flex flex-shrink-0 items-center right-7 ">
                     <img
-                      className="h-10 w-auto dark:bg-slate-900 bg-slate-200 rounded-full"
+                      className="h-10 w-auto shadow-2xl dark:bg-slate-900 bg-slate-100 rounded-full"
                       src="img/E.png"
                       alt="Logo"
                     />
@@ -262,7 +245,7 @@ tl.to("#timeline-art-box", {opacity: 1, x: 30,duration: 0.5});
       </div>
     </section>
     <section className='flex justify-center py-6 my-4 flex-col items-center' id='Proyectos'>
-      <h3 className='text-blue-800 text-3xl dark:text-blue-200 brillo hover:'>Proyectos</h3>
+      <h3 className='text-blue-700 text-3xl dark:text-blue-200 brillo hover:'>Proyectos</h3>
       <div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 xl:gap-10 max-w-screen-2xl jusitify-around mx-auto px-7' >
       {projects.map((project, index) => (
             <ProyectCard
@@ -270,60 +253,32 @@ tl.to("#timeline-art-box", {opacity: 1, x: 30,duration: 0.5});
               imagen={project.imagen}
               link={project.link}
               descripcion={project.descripcion}
+              boton={project.boton}
             >
-              {index < 2 && (
-                <>
-                  <div
-                    data-tooltip-id="1"
-                    data-tooltip-content="Wordpress"
-                    data-tooltip-place="top"
-                  >
-                    <Tooltip id="1" />
-                    <IconBrandWordpress className="text-blue-800 dark:text-current" />
-                  </div>
-
-                  <div
-                    data-tooltip-id="2"
-                    data-tooltip-content="Sass"
-                    data-tooltip-place="top"
-                  >
-                    <Tooltip id="2" />
-                    <IconBrandSass className="text-blue-800 dark:text-current" />
-                  </div>
-                  <div
-                    data-tooltip-id="3"
-                    data-tooltip-content="Bulma"
-                    data-tooltip-place="top"
-                  >
-                    <Tooltip id="3" />
-                    <IconBrandBulma className="text-blue-800 dark:text-current" />
-                  </div>
-                  <div
-                    data-tooltip-id="4"
-                    data-tooltip-content="Laravel"
-                    data-tooltip-place="top"
-                  >
-                    <Tooltip id="4" />
-                    <IconBrandLaravel className="text-blue-800 dark:text-current" />
-                  </div>
-                </>
-              )}
+              {project?.skills?.map((skill, skillIndex) => (
+                  <BrandIcon 
+                    key={index + "_" + skillIndex} 
+                    icon={skill.icon} 
+                    dataId={skillIndex + 1 + ''} 
+                    dataTop="top" 
+                    className="text-blue-800 dark:text-current"/>
+              ))}
             </ProyectCard>
           ))}
       </div>
     </section>
     <section id='Miexperiencia' className='flex justify-center py-6 my-4 flex-col items-center'>
-      <h4 className='text-blue-800 text-3xl dark:text-blue-200 brillo'>Mi experiencia</h4>
+      <h4 className='text-blue-700 text-3xl dark:text-blue-200 brillo'>Mi experiencia</h4>
       <div className='w-full flex flex-col justify-evenly items-center relative md:flex-row'>
         <div className='relative w-1/2'>
           <p className='text-black dark:text-white'>Mi primera experiencia trabajando como desarrollador web fue en la empresa
             Movidagrafica, donde aprendi a usar wordpress y mejorar mis habilidades como programador como FullStack junior.
           </p>
         </div>
-        <div id='timeline' className='relative py-4 before:absolute before:inset-0 before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent before:mx-3'>
+        <div id='timeline' className='relative py-4 before:absolute before:inset-0 before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent dark:before:via-slate-300 before:via-black before:to-transparent before:mx-3'>
           <article id='timeline-art' className='is-active group relative flex w-full items-center justify-between md:w-2/4 xl:w-full xl:justify-normal xl:even:flex-row-reverse xl:even:text-right'>
             <i id='timeline-art-icon' className='flex absolute h-5 w-5 opacity-0 items-center justify-center rounded-full bg-blue-500 mx-1'></i>
-            <div id='timeline-art-box' className='flex flex-col opacity-0 relative w-full h-full p-4 py-4 shadow-lg border min-w-max bg-slate-300 border-gray-300 dark:bg-slate-900 dark:border-gray-800 dark:shadow-gray-800 dark:text-white rounded-lg backdrop-blur-lg transition hover:scale-105'>
+            <div id='timeline-art-box' className='flex flex-col opacity-0 relative w-full h-full p-4 py-4 shadow-lg border min-w-max bg-indigo-100 border-gray-300 dark:bg-slate-900 dark:border-gray-800 dark:shadow-gray-800 dark:text-white rounded-lg backdrop-blur-lg transition hover:scale-105'>
               <h5>Movidagrafica</h5>
               <p>FullStack Developer</p>
               <span>2023</span>
@@ -333,9 +288,23 @@ tl.to("#timeline-art-box", {opacity: 1, x: 30,duration: 0.5});
       </div>
     </section>
     <section id='Habilidades' className='flex justify-center py-6 my-4 flex-col items-center'>
-    <h4 className='text-blue-800 text-3xl dark:text-blue-200 brillo'>Mis Habilidades</h4>
+    <h4 className='text-blue-700 text-3xl dark:text-blue-200 brillo'>Mis Habilidades</h4>
       <div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-3 lg:gap-6 xl:gap-10 max-w-screen-2xl jusitify-around mx-auto px-5'>
-        <SkillCard titulo='HTML5'>
+      
+      {BrandIcon.skills?.map((skill, skillIndex) => (
+        <SkillCard titulo={skill.icon}>
+                  <BrandIcon 
+                    key={index + "_" + skillIndex} 
+                    icon={skill.icon} 
+                    dataId={skillIndex + 1 + ''} 
+                    dataTop="top" 
+                    className="text-blue-800 dark:text-current"
+                    size="70"
+                    />
+        </SkillCard>
+              ))}
+      
+        {/* <SkillCard titulo='HTML5'>
           <IconBrandHtml5 className='text-blue-800 dark:text-current' size={70}/>
         </SkillCard>
         <SkillCard titulo='CSS3'>
@@ -352,10 +321,10 @@ tl.to("#timeline-art-box", {opacity: 1, x: 30,duration: 0.5});
         </SkillCard>
         <SkillCard titulo='PHP'>
           <IconBrandPhp className='text-blue-800 dark:text-current' size={70}/>
-        </SkillCard>
+        </SkillCard> */}
       </div>
     </section>
-    <footer id='Footer' className='relative flex justify-center bg-gradient-to-t py-3 dark:from-indigo-950 dark:to-black from-indigo-500 to-blue-200 dark:text-gray-100'>
+    <footer id='Footer' className='relative flex justify-center bg-gradient-to-t py-3 dark:from-indigo-950 dark:to-black from-indigo-300 to-blue-200 dark:text-gray-100'>
       <span>Copyright &copy; Designed by: 2024 - Elias Cordova</span>
     </footer>
     </>
