@@ -304,24 +304,7 @@ tl.to("#timeline-art-box", {opacity: 1, x:30, duration: 0.5});
         </SkillCard>
               ))}
       
-        {/* <SkillCard titulo='HTML5'>
-          <IconBrandHtml5 className='text-blue-800 dark:text-current' size={70}/>
-        </SkillCard>
-        <SkillCard titulo='CSS3'>
-          <IconBrandCss3 className='text-blue-800 dark:text-current' size={70}/>
-        </SkillCard>
-        <SkillCard titulo='Javascript'>
-          <IconBrandJavascript className='text-blue-800 dark:text-current' size={70}/>
-        </SkillCard>
-        <SkillCard titulo='SASS'>
-          <IconBrandSass className='text-blue-800 dark:text-current' size={70}/>
-        </SkillCard>
-        <SkillCard titulo='Laravel'>
-          <IconBrandLaravel className='text-blue-800 dark:text-current' size={70}/>
-        </SkillCard>
-        <SkillCard titulo='PHP'>
-          <IconBrandPhp className='text-blue-800 dark:text-current' size={70}/>
-        </SkillCard> */}
+        
       </div>
     </section>
     <footer id='Footer' className='relative flex justify-center bg-gradient-to-t py-3 dark:from-indigo-950 dark:to-black from-indigo-300 to-blue-200 dark:text-gray-100'>
