@@ -16,21 +16,21 @@ import {
 import { Tooltip } from "react-tooltip";
 
 const losIconos = {
-  Wordpress: IconBrandWordpress,
-  Bulma: IconBrandBulma,
-  Github: IconBrandGithub,
-  React: IconBrandReact,
-  Html5: IconBrandHtml5,
-  Sass: IconBrandSass,
-  Laravel: IconBrandLaravel,
-  Php: IconBrandPhp,
-  Css3: IconBrandCss3,
-  Javascript: IconBrandJavascript,
-  Mysql: IconBrandMysql
+  IconBrandWordpress,
+  IconBrandBulma,
+  IconBrandGithub,
+  IconBrandReact,
+  IconBrandHtml5,
+  IconBrandSass,
+  IconBrandLaravel,
+  IconBrandPhp,
+  IconBrandCss3,
+  IconBrandJavascript,
+  IconBrandMysql
 }
-const IconComponent = losIconos[icono]
 
 const BrandIcon = ({icon, dataId, dataTop, ...props}) => {
+  const IconComponent = losIconos[`IconBrand${icon}`]
   return (
     <div
       data-tooltip-id={dataId}
@@ -39,18 +39,8 @@ const BrandIcon = ({icon, dataId, dataTop, ...props}) => {
     >
       <Tooltip id={dataId} />
 
-      {/* {losiconos.map((icon) => (
-         {icon == icono && <IconComponent {...props} />}
-       ))
-      } */}
-      {icon == 'Wordpress' && <IconBrandWordpress {...props} />}
-      {icon == 'Bulma' && <IconBrandBulma {...props} />}
-      {icon == 'Github' && <IconBrandGithub {...props} />}
-      {icon == 'React' && <IconBrandReact {...props} />}
-      {icon == 'Html5' && <IconBrandHtml5 {...props} />}
-      {icon == 'Javascript' && <IconBrandJavascript {...props} />}
-      {icon == 'Sass' && <IconBrandSass {...props} />}
-      {icon == 'Laravel' && <IconBrandLaravel {...props} />}
+      <IconComponent {...props}/>
+
     </div>
   );
 };
