@@ -29,17 +29,7 @@ function App() {
     }).then(() => {
       setInit(true)
     })
-
-    if (theme == "dark") {
-      document.querySelector("html").classList.add("dark")
-    } else {
-      document.querySelector("html").classList.remove("dark")
-    }
   }, [theme])
-  
-  const cambiaTheme = () => {
-    setTheme((prevTheme) => (prevTheme == "light" ? "dark" : "light"))
-  }
 
   const particlesLoaded = (container) => {
     // console.log(container)
@@ -93,7 +83,7 @@ function App() {
       <div className="fixed h-full w-full object-cover">
         <img
           className="fixed h-full w-full transition-all duration-500 opacity-50"
-          src="img/pxfuel.jpg"
+          src="img/pxfuel.webp"
           alt=""
         />
         <div className="absolute z-10 h-full w-full bg-slate-50 dark:bg-black opacity-80"></div>
@@ -107,13 +97,11 @@ function App() {
         />
       </div>
 
-      <Navbar>
+      <Navbar></Navbar>
 
-      </Navbar>
-
-      <section className='flex h-full justify-center py-6 my-4' id='SobreMi'>
+      <section id='SobreMi' className='flex h-full justify-center py-6 my-10'>
         <div className='relative justify-center flex items-center flex-col h-1/2 lg:w-1/2 w-2/3'>
-          <img className='w-20 content-center rounded-full ' src="img/Elias.jpg" alt="persona" />
+          <img className='w-20 content-center rounded-full ' src="img/Elias.webp" alt="persona" />
           <h1 className='dark:text-gray-100 text-black text-3xl'>Elías Cordova</h1>
           <p className='dark:text-blue-300 text-blue-900 brillo'>Front-end Developer</p>
           <div className='mt-5 rounded-lg shadow-lg dark:bg-gray-950 bg-gray-100 px-5 py-3 border border-gray-300 dark:border-gray-800 dark:shadow-gray-800'>
@@ -130,13 +118,13 @@ function App() {
           </div>
         </div>
       </section>
-      <section className='flex h-full justify-center py-6 my-4 flex-col items-center' id='Proyectos'>
+      <section id='Proyectos' className='flex h-full justify-center py-6 flex-col items-center'>
         <h3 className='text-blue-700 text-3xl dark:text-blue-200 brillo hover:'>Proyectos</h3>
         <div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 xl:gap-10 max-w-screen-2xl jusitify-around mx-auto px-7' >
           {projectList}
         </div>
       </section>
-      <section id='Miexperiencia' className='flex h-full justify-center py-6 my-4 flex-col items-center'>
+      <section id='Miexperiencia' className='flex h-screen justify-center py-6 my-4 flex-col items-center'>
         <h4 className='text-blue-700 text-3xl dark:text-blue-200 brillo'>Mi experiencia</h4>
         <div className='w-full flex flex-col justify-evenly items-center relative md:flex-row'>
           <div className='relative w-1/2'>
@@ -158,7 +146,7 @@ function App() {
       </section>
       <section id='Habilidades' className='flex h-screen justify-evenly py-6 my-4 flex-col items-center'>
         <h4 className='text-blue-700 text-3xl dark:text-blue-200 brillo'>Mis Habilidades</h4>
-        <div className='grid w-full myskills mt-5 gap-1 md:gap-3 lg:gap-6 xl:gap-10 max-w-screen-2xl jusitify-around mx-auto px-5'>
+        <div className='grid w-full gridskills mt-5 gap-2 md:gap-4 lg:gap-6 xl:gap-10 max-w-screen-2xl jusitify-around mx-auto px-5'>
 
           {mySkills}
 

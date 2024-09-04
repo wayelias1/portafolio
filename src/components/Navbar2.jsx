@@ -8,9 +8,23 @@ export function Navbar2(){
         { name: "Mi experiencia", href: "#Miexperiencia", current: false },
         { name: "Footer", href: "#Footer", current: false },
     ]
+
+    function classNames(...classes) {
+        return classes.filter(Boolean).join(" ")
+    }
+
     const cambiaTheme = () => {
         setTheme((prevTheme) => (prevTheme == "light" ? "dark" : "light"))
     }
+
+    useEffect(() => {
+  
+        if (theme == "dark") {
+          document.querySelector("html").classList.add("dark")
+        } else {
+          document.querySelector("html").classList.remove("dark")
+        }
+      }, [theme])
 
     return (
         <nav className="sticky z-10 top-0 bg-gradient-to-b dark:from-indigo-950 dark:to-black from-indigo-300 to-blue-200 backdrop-blur-2xl transition-colors">

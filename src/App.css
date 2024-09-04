@@ -12,6 +12,6 @@
   z-index: 1;
 }
 
-.myskills{
+.gridskills{
   grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
 }
