@@ -39,7 +39,7 @@ function App() {
   tl.to("#timeline-art-icon", { opacity: 1, duration: 0.5 })
   tl.to("#timeline-art-box", { opacity: 1, x: 30, duration: 0.5 })
 
-  const projectList = projects.map(({ titulo, imagen, link, descripcion, boton, skills = [] }) => {
+  const projectList = projects.map(({ titulo, imagen, link, descripcion, boton, skills, tipo = [] }) => {
 
     const iconsList = skills.map(({ icon }) => (
       <BrandIcon
@@ -57,6 +57,7 @@ function App() {
       link={link}
       descripcion={descripcion}
       boton={boton}
+      tipo={tipo}
     >
       {iconsList}
     </ProyectCard>

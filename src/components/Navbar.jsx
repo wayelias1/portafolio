@@ -59,7 +59,7 @@ export function Navbar (){
                   <div className="flex flex-shrink-0 items-center right-7 ">
                     <img
                       className="h-10 w-auto shadow-2xl dark:bg-slate-900 bg-slate-100 rounded-full"
-                      src="img/E.png"
+                      src="img/E.webp"
                       alt="Logo"
                     />
                   </div>
