@@ -3,12 +3,18 @@ import {IconMenu2, IconSun, IconMoon, IconX, IconWorld, IconFileCv} from "@table
 import { Fragment, useEffect, useState, useMemo, useRef } from "react"
 
 export function Navbar (){
-    const navigation = [
-        { name: "Sobre mi", href: "#SobreMi", current: true },
-        { name: "Proyectos", href: "#Proyectos", current: false },
-        { name: "Mi experiencia", href: "#Miexperiencia", current: false },
-        { name: "Habilidades", href: "#Habilidades", current: false },
-      ]
+    const [navigation, setNavigation] = useState([
+      { name: "Sobre mi", href: "#SobreMi", current: true },
+      { name: "Proyectos", href: "#Proyectos", current: false },
+      { name: "Mi experiencia", href: "#Miexperiencia", current: false },
+      { name: "Habilidades", href: "#Habilidades", current: false },
+    ]);
+
+    const handleClick = (name) => {
+      setNavigation(navigation.map(item =>
+        item.name === name ? { ...item, current: true } : { ...item, current: false }
+      ));
+    };
     
     function classNames(...classes) {
         return classes.filter(Boolean).join(" ")
@@ -37,7 +43,7 @@ export function Navbar (){
     return (
         <Disclosure
         as="nav"
-        className="sticky z-10 top-0 bg-gradient-to-b dark:from-indigo-950 dark:to-black from-indigo-300 to-blue-200 backdrop-blur-2xl transition-colors"
+        className="fixed w-full z-10 top-0 bg-gradient-to-b dark:from-indigo-950 dark:to-black from-indigo-300 to-blue-200 backdrop-blur-2xl transition-colors"
       >
         {({ open }) => (
           <>
@@ -76,6 +82,7 @@ export function Navbar (){
                             "rounded-md px-3 py-2 text-sm font-medium transition-colors bg-opacity-80 dark:bg-opacity-50"
                           )}
                           aria-current={item.current ? "page" : undefined}
+                          onClick={() => handleClick(item.name)}
                         >
                           {item.name}
                         </a>
@@ -106,7 +113,7 @@ export function Navbar (){
                   </label>
 
                   {/* Profile dropdown */}
-                  <Menu as="div" className="relative ml-3 transition-colors">
+                  <Menu as="div" className="hidden relative ml-3 transition-colors">
                     <div>
                       <Menu.Button className="relative flex rounded-full p-1 text-sm text-blue-600 hover:text-blue-900 bg-gray-300 border-2 border-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-500 dark:text-blue-400 dark:bg-black dark:border-gray-600 dark:focus:ring-blue-700 dark:hover:text-white">
                         <span className="absolute -inset-1.5" />

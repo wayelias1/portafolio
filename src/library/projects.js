@@ -29,7 +29,7 @@ export const projects = [
     descripcion:
       "Este proyecto fue durante mi experiencia en Movidagrafica.co, colaboré en el desarrollo de un sitio web para una agencia inmobiliaria.",
     boton: "Visitar",
-    tipo: "hidden",
+    tipo: "realProyect",	
     skills: [
       {
         icon: 'Wordpress'

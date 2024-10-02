@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState, useMemo, useRef } from "react"
 import {IconMenu2, IconSun, IconMoon, IconX, IconWorld, IconFileCv} from "@tabler/icons-react"
 import BrandIcon from "./library/BrandIcon"
 import gsap from "gsap"
+
 import "./App.css"
 import { ProyectCard } from "./components/ProyectCard"
 import Particles, { initParticlesEngine } from "@tsparticles/react"
@@ -35,9 +36,19 @@ function App() {
     // console.log(container)
   }
 
-  var tl = gsap.timeline()
-  tl.to("#timeline-art-icon", { opacity: 1, duration: 0.5 })
-  tl.to("#timeline-art-box", { opacity: 1, x: 30, duration: 0.5 })
+  // const container = useRef();
+  // useGSAP(
+  //   ()=>{
+  //     let tl = gsap.timeline()
+  //     tl.to("#timeline-art-icon", { opacity: 1, duration: 0.5 })
+  //     tl.to("#timeline-art-box", { opacity: 1, x: 30, duration: 0.5 })
+  //   },
+  //   {scope: container}
+  // );
+
+  let tl = gsap.timeline()
+       tl.to("#timeline-art-icon", { opacity: 1, duration: 0.5 })
+       tl.to("#timeline-art-box", { opacity: 1, x: 30, duration: 0.5 })
 
   const projectList = projects.map(({ titulo, imagen, link, descripcion, boton, skills, tipo = [] }) => {
 
@@ -70,8 +81,8 @@ function App() {
       <BrandIcon
 
         icon={skill}
-        dataId={skill}
-        dataTop="top"
+        dataId={''}
+        dataTop=""
         className="text-blue-800 dark:text-current"
         size="70"
       />
@@ -100,9 +111,9 @@ function App() {
 
       <Navbar></Navbar>
 
-      <section id='SobreMi' className='flex h-full justify-center py-6 my-10'>
-        <div className='relative justify-center flex items-center flex-col h-1/2 lg:w-1/2 w-2/3'>
-          <img className='w-20 content-center rounded-full ' src="img/Elias.webp" alt="persona" />
+      <section id='SobreMi' className='flex h-full justify-center'>
+        <div className='relative justify-center py-24 flex items-center flex-col h-1/2 lg:w-1/2 w-2/3'>
+          <img className='w-28 content-center rounded-full ' src="img/Elias.webp" alt="persona" />
           <h1 className='dark:text-gray-100 text-black text-3xl'>Elías Cordova</h1>
           <p className='dark:text-blue-300 text-blue-900 brillo'>Front-end Developer</p>
           <div className='mt-5 rounded-lg shadow-lg dark:bg-gray-950 bg-gray-100 px-5 py-3 border border-gray-300 dark:border-gray-800 dark:shadow-gray-800'>
@@ -110,18 +121,16 @@ function App() {
               Con 24 años de edad, mi trayectoria académica me llevó a graduarme en la Universidad UNEXCA.
               Durante mi tiempo en la universidad, descubrí mi amor por los videojuegos de estrategia y el anime, lo que me inspiró a explorar el mundo de la programación.</p>
             <div className='pt-5'>
-              <a href="/docs/curriculum.pdf">
-                <button className='flex justify-center items-center border rounded-lg p-2 border-indigo-300 bg-blue-200 hover:bg-blue-400 dark:border-indigo-700 dark:bg-blue-900 dark:text-gray-300 dark:hover:bg-blue-700 transition hover:scale-105'>
+              <a className="flex justify-center items-center border rounded-lg p-2 border-indigo-300 bg-blue-200 hover:bg-blue-400 dark:border-indigo-700 dark:bg-blue-900 dark:text-gray-300 dark:hover:bg-blue-700 transition hover:scale-105" href="/docs/curriculum.pdf">
                   <IconFileCv /> Descargar Curriculum
-                </button>
               </a>
             </div>
           </div>
         </div>
       </section>
-      <section id='Proyectos' className='flex h-full justify-center py-6 flex-col items-center'>
+      <section id='Proyectos' className='flex h-full justify-center flex-col items-center'>
         <h3 className='text-blue-700 text-3xl dark:text-blue-200 brillo hover:'>Proyectos</h3>
-        <div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 xl:gap-10 max-w-screen-2xl jusitify-around mx-auto px-7' >
+        <div className='py-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 xl:gap-10 max-w-screen-2xl jusitify-around mx-auto px-7' >
           {projectList}
         </div>
       </section>
@@ -145,7 +154,7 @@ function App() {
           </div>
         </div>
       </section>
-      <section id='Habilidades' className='flex h-screen justify-evenly py-6 my-4 flex-col items-center'>
+      <section id='Habilidades' className='flex justify-evenly py-6 my-4 flex-col items-center'>
         <h4 className='text-blue-700 text-3xl dark:text-blue-200 brillo'>Mis Habilidades</h4>
         <div className='grid w-full gridskills mt-5 gap-2 md:gap-4 lg:gap-6 xl:gap-10 max-w-screen-2xl jusitify-around mx-auto px-5'>
 
@@ -153,7 +162,7 @@ function App() {
 
         </div>
       </section>
-      <footer id='Footer' className='relative flex justify-center bg-gradient-to-t py-3 dark:from-indigo-950 dark:to-black from-indigo-300 to-blue-200 dark:text-gray-100'>
+      <footer id='Footer' className='relative py-10 flex justify-center bg-gradient-to-t dark:from-indigo-950 dark:to-black from-indigo-300 to-blue-200 dark:text-gray-100'>
         <span>Copyright &copy; Designed by: 2024 - Elias Cordova</span>
       </footer>
     </>

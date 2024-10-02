@@ -2,12 +2,18 @@ import {IconMenu2, IconSun, IconMoon, IconX, IconWorld, IconFileCv} from "@table
 
 export function Navbar2(){
 
-    const navigation = [
-        { name: "Sobre mi", href: "#SobreMi", current: true },
-        { name: "Proyectos", href: "#Proyectos", current: false },
-        { name: "Mi experiencia", href: "#Miexperiencia", current: false },
-        { name: "Footer", href: "#Footer", current: false },
-    ]
+    const [navigation, setNavigation] = useState([
+      { name: "Sobre mi", href: "#SobreMi", current: true },
+      { name: "Proyectos", href: "#Proyectos", current: false },
+      { name: "Mi experiencia", href: "#Miexperiencia", current: false },
+      { name: "Habilidades", href: "#Habilidades", current: false },
+    ]);
+
+    const handleClick = (name) => {
+      setNavigation(navigation.map(item =>
+        item.name === name ? { ...item, current: true } : { ...item, current: false }
+      ));
+    };
 
     function classNames(...classes) {
         return classes.filter(Boolean).join(" ")
@@ -27,8 +33,11 @@ export function Navbar2(){
       }, [theme])
 
     return (
-        <nav className="sticky z-10 top-0 bg-gradient-to-b dark:from-indigo-950 dark:to-black from-indigo-300 to-blue-200 backdrop-blur-2xl transition-colors">
-            <div></div>
+        <nav className="absolute z-10 top-0 bg-gradient-to-b dark:from-indigo-950 dark:to-black from-indigo-300 to-blue-200 backdrop-blur-2xl transition-colors">
+            <div>
+              <img className="h-10 w-auto shadow-2xl dark:bg-slate-900 bg-slate-100 rounded-full"
+                src="img/E.webp" alt="Logo"/>
+            </div>
             <div>
                 {navigation.map((item) => (
                     <a
@@ -41,6 +50,7 @@ export function Navbar2(){
                         "rounded-md px-3 py-2 text-sm font-medium transition-colors bg-opacity-80 dark:bg-opacity-50"
                         )}
                         aria-current={item.current ? "page" : undefined}
+                        onClick={() => handleClick(item.name)}
                     >
                         {item.name}
                     </a>

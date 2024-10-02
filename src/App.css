@@ -17,10 +17,6 @@
 }
 
 .realProyect{
-  position: absolute;
   top: -1rem;
-  background: linear-gradient(120deg, rgb(28, 28, 97), rgb(69, 69, 137));
-  padding: 0.5rem;
-  border-radius: 16px;
-  border: 3px outset blue;
+  border: 3px outset;
 }
