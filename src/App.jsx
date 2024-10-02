@@ -118,9 +118,9 @@ function App() {
           <p className='dark:text-blue-300 text-blue-900 brillo'>Front-end Developer</p>
           <div className='mt-5 rounded-lg shadow-lg dark:bg-gray-950 bg-gray-100 px-5 py-3 border border-gray-300 dark:border-gray-800 dark:shadow-gray-800'>
             <p className='p-3 text-black dark:text-gray-100'>
-              Ingeniero en informática egresado de la universidad de UNEXCA, activo, capacitado para el trabajo como programador, diseño y 
-              mantenimiento de aplicaciones, todo lo relativo a entornos ofimaticos online. he trabajado en el Front-end, adicionalmente con
-              conocimientos basicos de Back-end.
+            Ingeniero en informática egresado en la universidad UNEXCA, activo, capacitado para el trabajo como programador, 
+            diseño y mantenimiento de aplicaciones y todo lo relativo a entornos ofimáticos online. He trabajado en el front-end, 
+            enfocado en el diseño y funcionalidades, adicionalmente con conocimientos básicos del back-end.
             </p>
             <div className='pt-5'>
               <a className="flex justify-center items-center border rounded-lg p-2 border-indigo-300 bg-blue-200 hover:bg-blue-400 dark:border-indigo-700 dark:bg-blue-900 dark:text-gray-300 dark:hover:bg-blue-700 transition hover:scale-105" href="/docs/curriculum.pdf">
