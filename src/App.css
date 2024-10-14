@@ -3,7 +3,7 @@
 }
 
 .brillo{
-  filter: drop-shadow(0 0 7px rgb(83, 112, 255));
+  filter: drop-shadow(0 0 7px rgb(165, 180, 255));
 }
 
 .Timeline i{
@@ -19,4 +19,8 @@
 .realProyect{
   top: -1rem;
   border: 3px outset;
+}
+
+.radiusRounded{
+  border-radius: 100%;
 }
