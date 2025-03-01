@@ -132,7 +132,7 @@ function App() {
       </section>
       <section id='Proyectos' className='flex h-full justify-center flex-col items-center md:w-full'>
         <h3 className='text-blue-900 text-3xl dark:text-blue-200 brillo hover:'>Proyectos</h3>
-        <div className='py-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 xl:gap-10 max-w-screen-2xl jusitify-around mx-auto px-4' >
+        <div className='py-24 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 xl:gap-10 max-w-screen-2xl jusitify-around mx-auto px-4' >
           {projectList}
         </div>
       </section>
