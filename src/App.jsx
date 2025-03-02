@@ -123,8 +123,8 @@ function App() {
             enfocado en el diseño y funcionalidades, adicionalmente con conocimientos básicos del back-end.
             </p>
             <div className='pt-5'>
-              <a className="flex justify-center items-center border rounded-lg p-2 border-indigo-300 bg-blue-200 hover:bg-blue-400 dark:border-indigo-700 dark:bg-blue-900 dark:text-gray-300 dark:hover:bg-blue-700 transition hover:scale-105" href="portafolio/docs/curriculum.pdf">
-                  <IconFileCv /> Descargar Curriculum
+              <a className="flex justify-center items-center border rounded-lg p-2 border-indigo-300 bg-blue-200 hover:bg-blue-400 dark:border-indigo-700 dark:bg-blue-900 dark:text-gray-300 dark:hover:bg-blue-700 transition hover:scale-105" href="/portafolio/docs/curriculum.pdf">
+                <IconFileCv /> Descargar Curriculum
               </a>
             </div>
           </div>
