@@ -31,6 +31,38 @@ export function Navbar2(){
           document.querySelector("html").classList.remove("dark")
         }
       }, [theme])
+//codigo a ver
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.getAttribute("id")
+          setNavigation((nav) =>
+            nav.map((item) =>
+              item.href === `#${sectionId}`
+                ? { ...item, current: true }
+                : { ...item, current: false }
+            )
+          )
+        }
+      })
+    },
+    {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5, // se considera visible al 50%
+    }
+  )
+
+  const sections = document.querySelectorAll("section[id]")
+  sections.forEach((section) => observer.observe(section))
+
+  return () => {
+    sections.forEach((section) => observer.unobserve(section))
+  }
+}, [])
+//codigo a ver
 
     return (
         <nav className="absolute z-10 top-0 bg-gradient-to-b dark:from-indigo-950 dark:to-black from-indigo-300 to-blue-200 backdrop-blur-2xl transition-colors">

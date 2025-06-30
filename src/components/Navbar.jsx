@@ -40,10 +40,38 @@ export function Navbar (){
       }
     }, [theme])
 
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const sectionId = entry.target.getAttribute('id')
+              setNavigation((nav) =>
+                nav.map((item) =>
+                  item.href === `#${sectionId}`
+                    ? { ...item, current: true }
+                    : { ...item, current: false }
+                )
+              )
+            }
+          })
+        },
+        {
+          threshold: 0.6, // 60% del elemento debe estar visible
+        }
+      )
+
+      const sections = document.querySelectorAll('section[id]')
+      sections.forEach((sec) => observer.observe(sec))
+
+      return () => sections.forEach((sec) => observer.unobserve(sec))
+    }, [])
+
+
     return (
         <Disclosure
         as="nav"
-        className="fixed w-full z-10 top-0 bg-gradient-to-b dark:from-indigo-950 dark:to-black from-indigo-300 to-blue-200 backdrop-blur-2xl transition-colors"
+        className="fixed w-full z-10 top-0 bg-gradient-to-b dark:from-indigo-950 dark:to-black from-indigo-200 to-blue-100 transition-colors duration-300"
       >
         {({ open }) => (
           <>
@@ -79,7 +107,7 @@ export function Navbar (){
                             item.current
                               ? "bg-blue-400 text-black dark:bg-blue-900 dark:text-white"
                               : "text-gray-950 hover:bg-blue-200 hover:text-gray-800 dark:text-gray-300 dark:hover:bg-gray-700",
-                            "rounded-md px-3 py-2 text-sm font-medium transition-colors bg-opacity-80 dark:bg-opacity-50"
+                            "rounded-md px-3 py-2 text-sm font-medium transition-colors duration-300 bg-opacity-80 dark:bg-opacity-50"
                           )}
                           aria-current={item.current ? "page" : undefined}
                           onClick={() => handleClick(item.name)}
@@ -166,7 +194,7 @@ export function Navbar (){
               </div>
             </div>
 
-            <Disclosure.Panel className="sm:hidden">
+            <Disclosure.Panel className="sm:hidden transition-all duration-300 ease-in-out">
               <div className="space-y-1 px-2 pb-3 pt-2 w-full fixed bg-gradient-to-t">
                 {navigation.map((item) => (
                   <Disclosure.Button
@@ -175,7 +203,7 @@ export function Navbar (){
                     href={item.href}
                     className={classNames(
                       item.current ? 'bg-blue-300 text-black dark:bg-blue-900 dark:text-white' : 'text-gray-950 hover:bg-gray-300 hover:text-gray-800 dark:text-gray-300 dark:hover:bg-gray-700',
-                      'block rounded-md px-3 py-2 text-base font-medium'
+                      'block rounded-md px-3 py-2 text-base font-medium transition-colors duration-300'
                     )}
                     aria-current={item.current ? 'page' : undefined}
                   >

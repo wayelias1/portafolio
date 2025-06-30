@@ -12,17 +12,13 @@ import { SkillCard } from "./components/SkillCard"
 import { projects } from "./library/projects"
 import { Navbar } from "./components/Navbar"
 import { Navbar2 } from "./components/Navbar2"
+import { Footer } from "./components/Footer"
 
 const skills = ["Wordpress", "Bulma", "Github", "React", "Html5", "Sass", "Laravel", "Php", "Css3", "Javascript", "Mysql"]
 
 function App() {
   const [init, setInit] = useState(false)
-  const [theme, setTheme] = useState(() => {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "dark"
-    }
-    return "light"
-  })
+  const [theme, setTheme] = useState(("dark"))
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -164,9 +160,7 @@ function App() {
 
         </div>
       </section>
-      <footer id='Footer' className='relative py-10 flex justify-center bg-gradient-to-t dark:from-indigo-950 dark:to-black from-indigo-300 to-blue-200 dark:text-gray-100'>
-        <span>Copyright &copy; Designed by: 2024 - Elias Cordova</span>
-      </footer>
+      <Footer></Footer>
     </>
   )
 }
