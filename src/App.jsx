@@ -90,7 +90,7 @@ function App() {
     <>
       <div className="fixed h-full w-full object-cover">
         <img
-          className="fixed h-full w-full transition-all duration-500 opacity-50"
+          className="fixed h-full w-full transition-all duration-300 opacity-50"
           src="img/pxfuel.webp"
           alt=""
         />
