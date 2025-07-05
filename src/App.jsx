@@ -92,7 +92,7 @@ function App() {
         <img
           className="fixed h-full w-full transition-all duration-300 opacity-50"
           src="img/pxfuel.webp"
-          alt=""
+          alt="fondo cuadriculado"
         />
         <div className="absolute z-10 h-full w-full bg-slate-50 dark:bg-black opacity-80"></div>
       </div>
