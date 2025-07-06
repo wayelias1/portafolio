@@ -1,5 +1,5 @@
 *{
-  font-family: "Roboto", sans-serif;
+  font-family: system-ui, sans-serif;
 }
 
 .brillo{
@@ -19,8 +19,4 @@
 .realProyect{
   top: -1rem;
   border: 3px outset;
-}
-
-.radiusRounded{
-  border-radius: 100%;
 }

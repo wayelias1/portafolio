@@ -1,17 +1,17 @@
 import { Fragment, useEffect, useState, useMemo, useRef } from "react"
-import {IconMenu2, IconSun, IconMoon, IconX, IconWorld, IconFileCv} from "@tabler/icons-react"
+import {IconMenu2, IconSun, IconMoon, IconX, IconWorld, IconFileCv, IconBrandGithub} from "@tabler/icons-react"
 import BrandIcon from "./library/BrandIcon"
 import gsap from "gsap"
-
 import "./App.css"
+import { Navbar } from "./components/Navbar"
+import { ButtonMy } from "./components/ButtonMy"
 import { ProyectCard } from "./components/ProyectCard"
 import Particles, { initParticlesEngine } from "@tsparticles/react"
 import { loadSlim } from "@tsparticles/slim"
 import { Opciones } from "./components/OptionsParticles"
 import { SkillCard } from "./components/SkillCard"
 import { projects } from "./library/projects"
-import { Navbar } from "./components/Navbar"
-import { Navbar2 } from "./components/Navbar2"
+import { Timeline } from "./components/Timeline"
 import { Footer } from "./components/Footer"
 
 const skills = ["Wordpress", "Bulma", "Github", "React", "Html5", "Sass", "Laravel", "Php", "Css3", "Javascript", "Mysql"]
@@ -31,21 +31,6 @@ function App() {
   const particlesLoaded = (container) => {
     // console.log(container)
   }
-
-  // const container = useRef();
-  // useGSAP(
-  //   ()=>{
-  //     let tl = gsap.timeline()
-  //     tl.to("#timeline-art-icon", { opacity: 1, duration: 0.5 })
-  //     tl.to("#timeline-art-box", { opacity: 1, x: 30, duration: 0.5 })
-  //   },
-  //   {scope: container}
-  // );
-
-  // let tl = gsap.timeline()
-  //      tl.to("#timeline-art-icon", { opacity: 1, duration: 0.5 })
-  //      tl.to("#timeline-art-box", { opacity: 1, x: 30, duration: 0.5 })
-
   const projectList = projects.map(({ titulo, imagen, link, descripcion, boton, skills, tipo = [] }) => {
 
     const iconsList = skills.map(({ icon }) => (
@@ -107,21 +92,20 @@ function App() {
 
       <Navbar></Navbar>
 
-      <section id='SobreMi' className='flex h-full justify-center'>
-        <div className='relative justify-center py-24 flex items-center flex-col h-1/2 lg:w-1/2 md:w-2/3 w-full'>
-          <img className='w-28 content-center radiusRounded' src="img/Elias.webp" alt="persona" />
-          <h1 className='dark:text-gray-100 text-black text-3xl'>Elías Cordova</h1>
-          <p className='dark:text-blue-300 text-blue-900 brillo'>Front-end Developer</p>
-          <div className='mt-5 rounded-lg shadow-lg dark:bg-gray-950 bg-gray-100 px-5 py-3 border border-gray-300 dark:border-gray-800 dark:shadow-gray-800'>
-            <p className='p-3 text-black dark:text-gray-100'>
+      <section id='SobreMi' className='flex min-h-screen justify-center items-center px-4 bg-white dark:bg-black overflow-hidden transition-colors duration-300'>
+        <div className='relative justify-center py-24 flex items-center flex-col lg:w-1/2 md:w-2/3 w-full'>
+          <img className='w-28 h-28 aspect-square object-cover rounded-fullMax' src="img/Elias.webp" alt="persona" loading="lazy" decoding="async" />
+          <h1 className='dark:text-gray-100 text-3xl transition-colors duration-300'>Elías Cordova</h1>
+          <p className='dark:text-blue-300 text-blue-900 brillo text-xl transition-colors duration-300'>Front-end Developer</p>
+          <div className='mt-5 rounded-lg shadow-lg dark:bg-gray-950 bg-gray-100 px-5 py-3 border border-gray-300 dark:border-gray-800 dark:shadow-gray-800 transition-colors duration-300'>
+            <p className='p-3 dark:text-gray-100 transition-colors duration-300'>
             Ingeniero en Informática (UNEXCA) con experiencia en desarrollo web full-stack. Dominio de PHP, Laravel,
             JavaScript, CSS y bases de datos. Enfoque en la optimización del servidor, diseño de interfaces intuitivas
             y mejora de la experiencia de usuario. Proactivo, atento a los detalles y con capacidad de trabajo en equipo.
             </p>
-            <div className='pt-5'>
-              <a className="flex justify-center items-center border rounded-lg p-2 border-indigo-300 bg-blue-200 hover:bg-blue-400 dark:border-indigo-700 dark:bg-blue-900 dark:text-gray-300 dark:hover:bg-blue-700 transition hover:scale-105" href="docs/curriculum.pdf">
-                <IconFileCv /> Descargar Curriculum
-              </a>
+            <div className='flex flex-col gap-4 sm:flex-row justify-around pt-5'>
+              <ButtonMy link="https://github.com/wayelias1" descripcion="Ver Github"><IconBrandGithub /></ButtonMy>
+              <ButtonMy link="docs/curriculum.pdf" descripcion="Descargar Curriculum"><IconFileCv /></ButtonMy>
             </div>
           </div>
         </div>
@@ -140,15 +124,9 @@ function App() {
               Movidagrafica, donde aprendi a usar wordpress y mejorar mis habilidades como programador como FullStack junior.
             </p>
           </div>
-          <div id='timeline' className='relative py-4 before:absolute before:inset-0 before:h-full before:w-1 before:bg-gradient-to-b before:from-transparent dark:before:via-slate-300 before:via-black before:to-transparent before:mx-3'>
-            <article id='timeline-art' className='is-active group relative flex w-full items-center justify-between md:w-2/4 xl:w-full xl:justify-normal xl:even:flex-row-reverse xl:even:text-right'>
-              <i id='timeline-art-icon' className='flex absolute h-5 w-5 items-center justify-center rounded-full bg-blue-500 mx-1'></i>
-              <div id='timeline-art-box' className='flex flex-col ml-8 relative w-full h-full p-4 py-4 shadow-lg border min-w-max bg-indigo-100 border-gray-300 dark:bg-slate-900 dark:border-gray-800 dark:shadow-gray-800 dark:text-white rounded-lg backdrop-blur-lg transition hover:scale-105'>
-                <h5>Movidagrafica</h5>
-                <p>FullStack Developer</p>
-                <span>2023</span>
-              </div>
-            </article>
+          <div>
+          <Timeline lugar="Movidagrafica" puesto="FullStack Developer" fecha="2023"/>
+          <Timeline lugar="Lore Ipsum" puesto="FullStack Developer" fecha="2025"/>
           </div>
         </div>
       </section>

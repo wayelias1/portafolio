@@ -6,7 +6,11 @@ export default {
   ],
   "darkMode" : "class",
   theme: {
-    extend: {},
+    extend: {
+      borderRadius: {
+        fullMax: '100%',
+      },
+    },
   },
   plugins: [],
 }

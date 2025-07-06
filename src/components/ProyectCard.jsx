@@ -5,7 +5,7 @@ export function ProyectCard ({titulo, imagen, descripcion, children, link, boton
           <div className={claseProyecto} ><p className="text-blue-700 dark:text-blue-200">Real Proyect</p></div>
           <h4 className='text-xl dark:text-blue-50 text-blue-800'>{titulo}</h4>
           <div className='py-3 max-h-96'> 
-            <img className='rounded-md h-56 w-full object-cover' src={imagen} alt={'foto de ' + titulo} />
+            <img className='w-full max-w-sm rounded-md h-56 object-cover' src={imagen} alt={'foto de ' + titulo} loading="lazy"decoding="async"/>
           </div>
           <div className="h-full">
             <p className='p-2 hyphens-manual'>{descripcion}</p>
