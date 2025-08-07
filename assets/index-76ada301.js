@@ -1,1 +1,0 @@
-import{_ as o}from"./index-f7194f93.js";async function i(t,a=!0){await t.addParticleUpdater("rotate",async e=>{const{RotateUpdater:r}=await o(()=>import("./RotateUpdater-bf8bb935.js"),["assets/RotateUpdater-bf8bb935.js","assets/index-f7194f93.js","assets/index-4b9f75ec.css","assets/ValueWithRandom-6132453c.js"]);return new r(e)},a)}export{i as loadRotateUpdater};
