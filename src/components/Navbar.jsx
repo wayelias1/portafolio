@@ -1,13 +1,17 @@
 import {IconMenu2, IconSun, IconMoon, IconX, IconWorld, IconFileCv} from "@tabler/icons-react"
-import { Fragment, useEffect, useState, useMemo, useRef } from "react"
+import { useEffect, useState, } from "react"
+import LanguageSelector from "./LenguageButton"
+import { useTranslation } from 'react-i18next';
 
 export function Navbar(){
 
+    const { t } = useTranslation();
+
     const [navigation, setNavigation] = useState([
-      { name: "Sobre mi", href: "#SobreMi", current: true },
-      { name: "Proyectos", href: "#Proyectos", current: false },
-      { name: "Mi experiencia", href: "#Miexperiencia", current: false },
-      { name: "Habilidades", href: "#Habilidades", current: false },
+      { name: "sobremi", href: "#SobreMi", current: true },
+      { name: "proyectos", href: "#Proyectos", current: false },
+      { name: "miexperiencia", href: "#Miexperiencia", current: false },
+      { name: "habilidades", href: "#Habilidades", current: false },
     ]);
 
     const [Open, setOpen] = useState(false);
@@ -107,7 +111,7 @@ export function Navbar(){
                     aria-current={item.current ? "page" : undefined}
                     onClick={() => handleClick(item.name)}
                   >
-                    {item.name}
+                    {t(item.name)}
                   </a>
                 ))}
               </div>
@@ -127,6 +131,9 @@ export function Navbar(){
                   </div>
                 </div>
               </label>
+            </div>
+            <div className="mx-4 flex items-center justify-center">
+              <LanguageSelector></LanguageSelector>
             </div>
           </div>
         </div>
