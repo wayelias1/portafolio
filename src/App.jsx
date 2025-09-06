@@ -45,7 +45,8 @@ function App() {
         className="text-blue-800 dark:text-current"
       />
     ))
-    return (<ProyectCard
+    return (
+    <ProyectCard
       key={titulo}
       titulo={titulo}
       imagen={imagen}
@@ -98,15 +99,15 @@ function App() {
       <section id='SobreMi' className='flex min-h-screen justify-center items-center px-4 bg-white dark:bg-black overflow-hidden transition-colors duration-300'>
         <div className='relative justify-center py-24 flex items-center flex-col md:flex-row-reverse lg:w-4/5 md:w-5/6 w-full'>
           <img className='w-72 h-72 aspect-square object-cover rounded-fullMax' src="img/Elias.webp" alt="persona" loading="lazy" decoding="async" /> 
-          <div className='px-5 py-3 m-20'>
+          <div className='px-5 py-3 my-20 mx-5 sm:mx-20'>
             <h1 className='dark:text-gray-100 text-3xl transition-colors duration-300'>Elías Cordova</h1>
             <p className='dark:text-blue-300 text-blue-900 brillo text-2xl transition-colors duration-300'>Full-stack Developer</p>
             <p className='p-3 dark:text-gray-100 transition-colors duration-300'>
             {t('infoSobremi')}
             </p>
             <div className='flex flex-col gap-4 sm:flex-row justify-around pt-5'>
-              <ButtonMy link="https://github.com/wayelias1" descripcion={t('buttonGithub')}><IconBrandGithub /></ButtonMy>
-              <ButtonMy link={t('linkCurriculum')} descripcion={t('buttonCurriculum')}><IconFileCv /></ButtonMy>
+              <ButtonMy link="https://github.com/wayelias1" descripcion={t('buttonGithub')}><IconBrandGithub className="h-7 w-6" aria-hidden="true" /></ButtonMy>
+              <ButtonMy link={t('linkCurriculum')} descripcion={t('buttonCurriculum')}><IconFileCv className="h-7 w-6" aria-hidden="true" /></ButtonMy>
             </div>
           </div>
         </div>
@@ -117,10 +118,10 @@ function App() {
           {projectList}
         </div>
       </section>
-      <section id='Miexperiencia' className='flex h-screen justify-center py-6 my-4 flex-col items-center'>
+      <section id='Miexperiencia' className='flex h-full min-h-screen justify-center py-6 my-4 flex-col items-center'>
         <h4 className='text-blue-900 text-3xl dark:text-blue-200 brillo'>{t('miexperiencia')}</h4>
         <div className='w-full flex flex-col justify-evenly items-center relative md:flex-row'>
-          <div className='relative w-1/2'>
+          <div className='relative w-5/6 sm:w-1/2'>
             <p className='text-black dark:text-white'>
             {t('infoMiexperiencia')}
             </p>

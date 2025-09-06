@@ -46,7 +46,7 @@ export const projects = [
     ]
   },
   {
-    titulo: "Proyecto 3",
+    titulo: "E-commerce",
     imagen: "img/proyecto3.webp",
     link: "https://github.com/wayelias1/tecnodidactic",
     descripcion:
