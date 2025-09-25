@@ -1,2 +1,0 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/Pauser-DNnHNTke.js","assets/ExternalInteractorBase-CIi3zRdK.js"])))=>i.map(i=>d[i]);
-import{_ as o}from"./index-DkBbFk0F.js";async function i(a,t=!0){await a.addInteractor("externalPause",async r=>{const{Pauser:e}=await o(async()=>{const{Pauser:n}=await import("./Pauser-DNnHNTke.js");return{Pauser:n}},__vite__mapDeps([0,1]));return new e(r)},t)}export{i as loadExternalPauseInteraction};
