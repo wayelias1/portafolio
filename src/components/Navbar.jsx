@@ -74,7 +74,7 @@ export function Navbar(){
 
     return (
       <nav className="fixed w-full z-10 top-0 bg-gradient-to-b dark:from-indigo-950 dark:to-black from-gray-200 to-stone-100 transition-colors duration-300" >
-        <div className="mx-auto max-w-7xl md:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl md:px-6">
           <div className="relative flex px-2 h-16 items-center justify-between">
             <button className="relative flex items-center md:hidden rounded-md p-2 dark:text-white focus:outline-none focus:ring-2 focus:ring-inset cursor-pointer" 
             onClick={() => setOpen(!Open)}>
