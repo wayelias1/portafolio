@@ -57,5 +57,22 @@ export const projects = [
       
     ]
   },
+  {
+    titulo: "Rifa Ganaconelarabe",
+    imagen: "img/proyecto4.webp",
+    link: "https://rifa-ganaconelarabe.vercel.app",
+    descripcion:
+      "proyecto4",
+    boton: "Visitar",
+    tipo: "realProyect",
+    skills: [
+      {
+        icon: 'React'
+      },
+      {
+        icon: 'Tailwind'
+      }
+    ]
+  },
 ];
 

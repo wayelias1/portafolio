@@ -16,7 +16,7 @@ import { projects } from "./library/projects"
 import { Timeline } from "./components/Timeline"
 import { Footer } from "./components/Footer"
 
-const skills = ["Wordpress", "Bulma", "Github", "React", "Html5", "Sass", "Laravel", "Php", "Css3", "Javascript", "Mysql"]
+const skills = ["Wordpress", "Bulma", "Github", "React", "Html5", "Sass", "Laravel", "Php", "Css3", "Javascript", "Mysql", "Tailwind"]
 
 function App() {
   const [init, setInit] = useState(false)
@@ -99,7 +99,7 @@ function App() {
       <section id='SobreMi' className='flex min-h-screen justify-center items-center px-4 bg-white dark:bg-black overflow-hidden transition-colors duration-300'>
         <div className='relative justify-center py-24 flex items-center flex-col md:flex-row-reverse lg:w-4/5 md:w-5/6 w-full'>
           <img className='w-72 h-72 aspect-square object-cover rounded-fullMax' src="img/Elias.webp" alt="persona" loading="lazy" decoding="async" /> 
-          <div className='px-5 py-3 my-20 mx-5 sm:mx-20'>
+          <div className='px-5 py-3 my-20 mx-5 md:mx-10'>
             <h1 className='dark:text-gray-100 text-3xl transition-colors duration-300'>Elías Cordova</h1>
             <p className='dark:text-blue-300 text-blue-900 brillo text-2xl transition-colors duration-300'>Full-stack Developer</p>
             <p className='p-3 dark:text-gray-100 transition-colors duration-300'>

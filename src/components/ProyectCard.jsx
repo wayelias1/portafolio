@@ -13,7 +13,7 @@ export function ProyectCard ({titulo, imagen, descripcion, children, link, boton
             <p className='p-2 hyphens-manual'>{t(descripcion)}</p>
           </div>
           <div className="flex flex-col">
-            <div className='flex justify-between py-2 my-6 text-blue-300'>
+            <div className='flex gap-8 flex-wrap py-2 my-6 text-blue-300'>
               {children}
             </div>
             <a className='w-fit' href={link}>

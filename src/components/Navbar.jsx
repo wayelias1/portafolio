@@ -73,10 +73,10 @@ export function Navbar(){
     }, [])
 
     return (
-      <nav className="fixed w-full z-10 top-0 bg-gradient-to-b dark:from-indigo-950 dark:to-black from-indigo-300 to-blue-200 transition-colors duration-300" >
-        <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <nav className="fixed w-full z-10 top-0 bg-gradient-to-b dark:from-indigo-950 dark:to-black from-gray-200 to-stone-100 transition-colors duration-300" >
+        <div className="mx-auto max-w-7xl md:px-6 lg:px-8">
           <div className="relative flex px-2 h-16 items-center justify-between">
-            <button className="relative flex items-center sm:hidden rounded-md p-2 dark:text-white focus:outline-none focus:ring-2 focus:ring-inset cursor-pointer" 
+            <button className="relative flex items-center md:hidden rounded-md p-2 dark:text-white focus:outline-none focus:ring-2 focus:ring-inset cursor-pointer" 
             onClick={() => setOpen(!Open)}>
               {Open ? (
                 <IconX className="block h-6 w-6" aria-hidden="true" />
@@ -84,18 +84,18 @@ export function Navbar(){
                 <IconMenu2 className="block h-6 w-6" aria-hidden="true" />
               )}
             </button>
-            <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+            <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
               <div className="flex flex-shrink-0 items-center right-7 ">
                 <img
-                  className="h-10 w-10 dark:bg-slate-900 bg-slate-100 rounded-full"
+                  className="h-10 w-10 rounded-full"
                   src="img/E.webp"
                   alt="Logo"
                   loading="lazy"
                 />
               </div>
               <div className={classNames(
-                  "flex flex-col absolute px-4 py-3 bg-gradient-to-t dark:from-indigo-950 dark:to-black from-indigo-300 to-blue-200 space-y-4 sm:space-y-0 sm:flex-row sm:space-x-4 sm:ml-6 sm:relative sm:p-0 sm:bg-none transition-colors duration-300",
-                  Open ? "top-full left-0 w-full shadow-md z-10" : "hidden sm:flex"
+                  "flex flex-col absolute px-4 py-3 bg-gradient-to-t dark:from-indigo-950 dark:to-black from-indigo-300 to-blue-200 space-y-4 md:space-y-0 md:flex-row md:space-x-4 md:ml-6 md:relative md:p-0 md:bg-none transition-colors duration-300",
+                  Open ? "top-full left-0 w-full shadow-md z-10" : "hidden md:flex"
                 )
               }>
                 {navigation.map((item) => (

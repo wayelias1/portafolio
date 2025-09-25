@@ -23,6 +23,7 @@ const losIconos = {
   IconBrandHtml5,
   IconBrandSass,
   IconBrandLaravel,
+  IconBrandTailwind,
   IconBrandPhp,
   IconBrandCss3,
   IconBrandJavascript,
