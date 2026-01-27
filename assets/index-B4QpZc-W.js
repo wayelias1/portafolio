@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/BaseMover-CElDbt33.js","assets/index-B0c1Quls.js","assets/index-Lt171jXN.css"])))=>i.map(i=>d[i]);
+import{_ as t}from"./index-B0c1Quls.js";async function s(a,e=!0){await a.addMover("base",async()=>{const{BaseMover:r}=await t(async()=>{const{BaseMover:o}=await import("./BaseMover-CElDbt33.js");return{BaseMover:o}},__vite__mapDeps([0,1,2]));return new r},e)}export{s as loadBaseMover};
